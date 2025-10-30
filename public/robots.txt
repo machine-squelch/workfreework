@@ -1,0 +1,6 @@
+# robots.txt for WorkFreeWork
+User-agent: *
+Allow: /
+
+Sitemap: https://workfreework.com/sitemap.xml
+
