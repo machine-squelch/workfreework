@@ -21,7 +21,8 @@ export default function RonnyWidget() {
     const text = input.trim();
     if (!text || loading) return;
     setInput("");
-    const newHistory = [...messages, { role: "user", content: text }];
+    const userMsg: Msg = { role: "user", content: text };
+    const newHistory: Msg[] = [...messages, userMsg];
     setMessages(newHistory);
     setLoading(true);
     try {
@@ -37,7 +38,12 @@ export default function RonnyWidget() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data?.error || "Agent error");
-      const assistant = data?.message ?? { role: "assistant", content: "(no response)" };
+      const assistantRaw = data?.message;
+      const assistantContent =
+        typeof assistantRaw?.content === "string"
+          ? assistantRaw.content
+          : JSON.stringify(assistantRaw?.content ?? "(no response)");
+      const assistant: Msg = { role: "assistant", content: assistantContent };
       setMessages((prev) => [...prev, assistant]);
       listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
     } catch (e: any) {
