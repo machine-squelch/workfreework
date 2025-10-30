@@ -69,42 +69,46 @@ export default function RonnyWidget() {
       <button
         aria-label="Open Ronny"
         onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-4 right-4 z-40 shadow-lg rounded-full bg-white border hover:scale-105 transition-transform"
-        style={{ width: 56, height: 56 }}
+        className="fixed bottom-6 right-6 z-40 shadow-lg rounded-full bg-white border hover:scale-105 transition-transform w-16 h-16 md:w-20 md:h-20"
       >
-        <img src="/ronny-robot.png" alt="Ronny" width={56} height={56} className="rounded-full" />
+        <img src="/ronny-robot.png" alt="Ronny" className="rounded-full w-full h-full object-cover" />
       </button>
 
       {/* Panel */}
       {open && (
-        <div className="fixed bottom-20 right-4 z-40 w-[360px] max-w-[95vw] shadow-xl border rounded-xl bg-white overflow-hidden">
-          <div className="flex items-center justify-between p-3 border-b bg-gray-50">
+        <div className="fixed bottom-28 right-4 md:right-6 z-40 w-[360px] md:w-[480px] max-w-[95vw] shadow-2xl border rounded-2xl bg-white overflow-hidden">
+          <div className="flex items-center justify-between p-4 border-b bg-gray-50">
             <div className="flex items-center gap-2">
-              <img src="/ronny-robot.png" alt="Ronny" width={28} height={28} className="rounded" />
-              <div className="text-sm font-medium">Ronny the Robot</div>
+              <img src="/ronny-robot.png" alt="Ronny" width={32} height={32} className="rounded" />
+              <div className="text-sm md:text-base font-medium">Ronny the Robot</div>
             </div>
             <button onClick={() => setOpen(false)} className="text-gray-500 hover:text-gray-800 text-sm">Close</button>
           </div>
-          <div ref={listRef} className="p-3 h-[360px] overflow-y-auto">
+          <div ref={listRef} className="p-4 h-[420px] md:h-[560px] overflow-y-auto bg-white">
             {messages.length === 0 ? (
               <div className="text-gray-500 text-sm">Ask me anything—alright, alright, alright.</div>
             ) : (
-              <div className="space-y-3">
-                {messages.map((m, i) => (
-                  <div key={i} className={m.role === "user" ? "text-right" : "text-left"}>
-                    <div
-                      className={
-                        "inline-block px-3 py-2 rounded-md " +
-                        (m.role === "user" ? "bg-blue-600 text-white" : "bg-gray-100 text-gray-900")
-                      }
-                    >
-                      {typeof m.content === "string" ? m.content : JSON.stringify(m.content)}
+              <div className="space-y-4">
+                {messages.map((m, i) => {
+                  const isUser = m.role === "user";
+                  return (
+                    <div key={i} className={isUser ? "flex justify-end" : "flex justify-start"}>
+                      <div
+                        className={
+                          (isUser
+                            ? "bg-blue-600 text-white"
+                            : "bg-gray-100 text-gray-900") +
+                          " rounded-2xl px-4 py-3 shadow-md max-w-[80%] md:max-w-[75%] whitespace-pre-wrap leading-relaxed"
+                        }
+                      >
+                        {typeof m.content === "string" ? m.content : JSON.stringify(m.content)}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
                 {loading && (
-                  <div className="text-left">
-                    <div className="inline-block px-3 py-2 rounded-md bg-gray-100 text-gray-500">
+                  <div className="flex justify-start">
+                    <div className="rounded-2xl px-4 py-3 bg-gray-100 text-gray-500 shadow-md">
                       Ronny is thinking…
                     </div>
                   </div>
@@ -112,16 +116,16 @@ export default function RonnyWidget() {
               </div>
             )}
           </div>
-          <div className="p-3 flex gap-2 border-t">
+          <div className="p-4 flex gap-2 border-t bg-gray-50">
             <input
-              className="flex-1 border rounded-md px-3 py-2"
+              className="flex-1 border rounded-xl px-3 py-3 text-[15px]"
               placeholder="Type a message"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={onKeyDown}
               disabled={loading}
             />
-            <button onClick={send} disabled={loading} className="px-3 py-2 rounded-md bg-black text-white disabled:opacity-50">
+            <button onClick={send} disabled={loading} className="px-4 py-3 rounded-xl bg-black text-white disabled:opacity-50">
               Send
             </button>
           </div>

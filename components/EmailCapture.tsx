@@ -74,7 +74,7 @@ export default function EmailCapture({
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className="bg-white text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition-all whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn-glass whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {status === 'submitting' ? 'Sending...' : buttonText}
         </button>

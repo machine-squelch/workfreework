@@ -77,7 +77,8 @@ export default function PricingPage() {
 
               <Link
                 href="/newsletter"
-                className="w-full bg-gray-800 text-white px-6 py-3 rounded-md font-semibold hover:bg-gray-700 transition-all text-center block border border-gray-600"
+                className="w-full text-center block"
+                data-btn="glass"
               >
                 Get Started Free
               </Link>
@@ -133,7 +134,8 @@ export default function PricingPage() {
 
               <Link
                 href="/api/checkout?tier=collective"
-                className="w-full bg-white text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition-all btn-glitch text-center block"
+                className="w-full text-center block"
+                data-btn="glass"
               >
                 Join The Collective
               </Link>
@@ -189,7 +191,8 @@ export default function PricingPage() {
 
               <Link
                 href="/api/checkout?tier=accelerator"
-                className="w-full bg-white text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition-all border border-white text-center block"
+                className="w-full text-center block"
+                data-btn="glass"
               >
                 Apply for Accelerator
               </Link>
@@ -245,7 +248,8 @@ export default function PricingPage() {
 
               <Link
                 href="/api/checkout?tier=patron"
-                className="w-full bg-white text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition-all text-center block"
+                className="w-full text-center block"
+                data-btn="glass"
               >
                 Become a Patron
               </Link>
@@ -348,13 +352,13 @@ export default function PricingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/newsletter"
-              className="bg-gray-800 text-white px-8 py-4 rounded-md font-semibold hover:bg-gray-700 transition-all border border-gray-600"
+              data-btn="glass"
             >
               Start with Free Newsletter
             </Link>
             <Link
               href="/api/checkout?tier=collective"
-              className="bg-white text-black px-8 py-4 rounded-md font-semibold hover:bg-gray-200 transition-all btn-glitch inline-block"
+              data-btn="glass"
             >
               Join The Collective - $15/mo
             </Link>

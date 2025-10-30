@@ -4,10 +4,10 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="relative h-screen overflow-hidden bg-gray-900">
+    <section className="relative min-h-[70vh] md:min-h-[72vh] overflow-hidden bg-gray-900 py-12 md:py-16">
       {/* Skull background image - lowest layer */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-10 skull-anim"
         style={{
           backgroundImage: 'url(/skull-complete.png)',
           backgroundSize: 'cover',
@@ -50,7 +50,7 @@ export default function Hero() {
               <div className="glass-card w-full h-full rounded-3xl"></div>
             </div>
             
-            <div className="relative z-10 py-8">
+            <div className="relative z-10 py-6 md:py-8">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white">
                 Work Free. Earn More.
               </h1>

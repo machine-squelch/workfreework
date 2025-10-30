@@ -179,7 +179,7 @@ export default function CommunityPage() {
                 <li>✓ Weekly co-working sessions</li>
                 <li>✓ Member skill shares</li>
               </ul>
-              <button className="w-full bg-black text-white px-6 py-3 rounded-md font-semibold hover:bg-gray-800 btn-glitch">
+              <button className="w-full" data-btn="glass">
                 Join Waitlist
               </button>
             </div>
@@ -195,7 +195,7 @@ export default function CommunityPage() {
                 <li>✓ Priority support</li>
                 <li>✓ Early access to tools</li>
               </ul>
-              <button className="w-full border-2 border-black text-black px-6 py-3 rounded-md font-semibold hover:bg-black hover:text-white transition-all">
+              <button className="w-full" data-btn="glass">
                 Join Waitlist
               </button>
             </div>

@@ -217,7 +217,8 @@ export default function Home() {
           <div className="text-center mt-10">
             <Link 
               href="/essays"
-              className="inline-block bg-black text-gray-200 px-8 py-3 rounded-md font-semibold hover:bg-black hover:text-black transition-all btn-glitch"
+              className="inline-block"
+              data-btn="glass"
             >
               Read the Library
             </Link>
@@ -277,7 +278,8 @@ export default function Home() {
               
               <Link
                 href="/pricing"
-                className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors text-lg"
+                className="inline-flex items-center text-lg"
+                data-btn="glass"
               >
                 Join the WorkFree Movement
               </Link>
@@ -312,13 +314,15 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link
               href="/pricing"
-              className="bg-white text-black px-8 py-4 rounded-md font-semibold hover:bg-gray-200 transition-all btn-glitch text-lg"
+              className="text-lg"
+              data-btn="glass"
             >
               View All Membership Tiers
             </Link>
             <Link
               href="/api/checkout?tier=collective"
-              className="bg-gray-900 text-white px-8 py-4 rounded-md font-semibold hover:bg-gray-800 transition-all border border-gray-600 text-lg inline-block"
+              className="text-lg inline-block"
+              data-btn="glass"
             >
               Join for $15/month →
             </Link>

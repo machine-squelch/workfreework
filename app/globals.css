@@ -217,7 +217,51 @@ body {
   }
 }
 
+/* Subtle floating/parallax for skull background */
+.skull-anim {
+  animation: skull-float 24s ease-in-out infinite;
+}
+
+@keyframes skull-float {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  25%  { transform: translate3d(2%, -1%, 0) scale(1.02); }
+  50%  { transform: translate3d(-1%, 2%, 0) scale(1.015); }
+  75%  { transform: translate3d(1%, -2%, 0) scale(1.01); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
 /* Paper sheet styling for essay bodies */
+/* Modern glass button with thick top border */
+.btn-glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top-width: 4px; /* thick upper border */
+  border-radius: 14px;
+  padding: 0.75rem 1.25rem;
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.35),
+    inset 0 -1px 0 rgba(255,255,255,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-glass:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 12px 34px rgba(0,0,0,0.35),
+    0 0 12px rgba(0, 255, 249, 0.15);
+}
+.btn-glass:active { transform: translateY(0); }
+
+/* Utility attribute alias so we can "utilitize" quickly */
+[data-btn="glass"] { @apply btn-glass; }
+[data-btn-variant="primary"] { border-top-color: rgba(0,255,249,0.8); }
+[data-btn-variant="ghost"] { background: rgba(255,255,255,0.04); }
+
 .paper-sheet {
   position: relative;
   background-color: #ffffff;
