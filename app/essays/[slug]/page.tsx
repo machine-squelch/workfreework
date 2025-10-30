@@ -131,6 +131,44 @@ const essaysData: { [key: string]: any } = {
       <p>Start automating now. Keep your time. Build alternatives. And push for a world where automation serves humans, not the other way around.</p>
     `,
   },
+  'work-is-a-19th-century-patch': {
+    title: 'Work Is a 19th-Century Patch (And It’s Starting to Peel)',
+    excerpt: 'Stop patching the 1800s model. Start upgrading to human-first work.',
+    date: '2025-03-01',
+    readTime: '7 min read',
+    category: 'Manifesto',
+    content: `
+      <p>Once upon a time, steam engines were the hottest tech on Earth. Factories chugged, bosses shouted, and people measured their worth by how long they could stand without passing out. The work week was born—a neat little box to keep humans as predictable as machines.</p>
+
+      <p>Fast-forward to the present. Algorithms decide your route to work. AI answers your emails. Your phone knows your mood swings. The machines have evolved, but we’re still acting like Dickens is our HR manager. We’re basically running Windows 1820 on quantum hardware.</p>
+
+      <p><strong>Work isn’t a curse—it’s a duct-tape fix that’s overstayed its welcome.</strong> It was never meant to last this long. We keep patching the same system, slapping “productivity tools” and “wellness perks” on top like we’re decorating a collapsing factory wall. Spoiler: the paint’s not helping.</p>
+
+      <p>If we built “work” from scratch today, it wouldn’t look like this corporate cosplay. We’d measure value by what we create, not how many hours we sit pretending to care in meetings that could’ve been a well-trained bot. Freedom would be the default setting, not a weekend feature.</p>
+
+      <h2>But two ancient lies keep glitching the upgrade:</h2>
+
+      <p><strong>Lie #1 — “You must work to deserve living.”</strong><br/>
+      Wrong. You were already alive when you woke up. Congrats. The idea that existence needs a permission slip signed by labor is peak industrial brain rot.</p>
+
+      <p><strong>Lie #2 — “If a machine does your job, you’ve failed.”</strong><br/>
+      Please. If a bot can do your job, you’ve won the game. You’ve offloaded the boring part of being human. Now you get to use your brain for things like ideas, curiosity, or the sweet art of not burning out.</p>
+
+      <h2>So what now? Peel off the patch and start rewiring.</h2>
+      <ol>
+        <li><strong>Find the patch.</strong> The task that drains your soul every week? That’s your relic. Mark it for deletion.</li>
+        <li><strong>Automate it.</strong> Let a machine handle it. That’s literally its hobby.</li>
+        <li><strong>Reclaim the time.</strong> Do something creative, weird, profitable, or just vaguely joyful.</li>
+        <li><strong>Repeat</strong> until your life stops feeling like an Excel spreadsheet.</li>
+      </ol>
+
+      <p>You’re not rejecting work—you’re finally debugging it. The 19th-century model was designed to make humans fit machines. You’re alive in the era where machines can finally fit humans.</p>
+
+      <p><strong>So stop patching. Start upgrading.</strong></p>
+
+      <p>And if your boss asks what you’re doing, tell them it’s a system update.</p>
+    `,
+  },
 }
 
 // Generate static params for all essays
@@ -176,13 +214,13 @@ export default function EssayPage({ params }: { params: { slug: string } }) {
         <div className="max-w-4xl mx-auto">
           <Link 
             href="/essays" 
-            className="text-black hover:text-white mb-6 inline-block"
+            className="text-white hover:underline mb-6 inline-block"
           >
             ← Back to Essays
           </Link>
           
           <div className="mb-4">
-            <span className="inline-block bg-black text-black px-3 py-1 rounded text-sm font-semibold">
+            <span className="inline-block bg-black text-white px-3 py-1 rounded text-sm font-semibold">
               {essay.category}
             </span>
           </div>
@@ -207,15 +245,16 @@ export default function EssayPage({ params }: { params: { slug: string } }) {
 
       {/* Content */}
       <article className="max-w-4xl mx-auto px-4 py-16">
-        <div 
-          className="prose prose-lg max-w-none"
-          style={{
-            fontSize: '1.125rem',
-            lineHeight: '1.75',
-            color: '#333',
-          }}
-        >
-          <div dangerouslySetInnerHTML={{ __html: essay.content }} />
+        <div className="paper-sheet p-6 md:p-10">
+          <div
+            style={{
+              fontSize: '1.125rem',
+              lineHeight: '1.75',
+              color: '#1f2937',
+            }}
+          >
+            <div dangerouslySetInnerHTML={{ __html: essay.content }} />
+          </div>
         </div>
       </article>
 
@@ -223,13 +262,13 @@ export default function EssayPage({ params }: { params: { slug: string } }) {
       <section className="max-w-4xl mx-auto px-4 py-8 border-t border-gray-300">
         <p className="text-center text-gray-600 mb-4">Share this essay</p>
         <div className="flex justify-center space-x-4">
-          <button className="px-4 py-2 bg-black text-white rounded hover:bg-black hover:text-black transition-all">
+          <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors">
             Twitter
           </button>
-          <button className="px-4 py-2 bg-black text-white rounded hover:bg-black hover:text-black transition-all">
+          <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors">
             LinkedIn
           </button>
-          <button className="px-4 py-2 bg-black text-white rounded hover:bg-black hover:text-black transition-all">
+          <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors">
             Copy Link
           </button>
         </div>

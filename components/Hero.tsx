@@ -4,10 +4,10 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="relative h-screen overflow-hidden bg-gray-900">
+    <section className="relative min-h-[72vh] overflow-hidden bg-gray-900 py-10 md:py-12">
       {/* Skull background image - lowest layer */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0 opacity-10 skull-anim"
         style={{
           backgroundImage: 'url(/skull-complete.png)',
           backgroundSize: 'cover',
@@ -26,11 +26,11 @@ export default function Hero() {
       }}></div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="relative z-10 h-full grid place-items-center px-4">
+        <div className="max-w-4xl w-full mx-auto text-center flex flex-col items-center gap-16 md:gap-20">
           
           {/* Glass Card Behind Logo - 25px padding, matches logo dimensions */}
-          <div className="relative mb-20 flex justify-center">
+          <div className="relative flex justify-center">
             {/* Glass card wraps logo with 25px padding on all sides */}
             <div className="glass-card rounded-3xl p-[25px]">
               <Image 
@@ -50,7 +50,7 @@ export default function Hero() {
               <div className="glass-card w-full h-full rounded-3xl"></div>
             </div>
             
-            <div className="relative z-10 py-8">
+            <div className="relative z-10 py-6 md:py-8">
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white">
                 Work Free. Earn More.
               </h1>

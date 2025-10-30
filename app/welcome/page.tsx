@@ -49,14 +49,16 @@ function WelcomeContent() {
           <div className="space-y-4">
             <Link
               href="/community"
-              className="block bg-white text-black px-8 py-4 rounded-md font-semibold hover:bg-gray-200 transition-all"
+              className="block"
+              data-btn="glass"
             >
               Visit Community Page
             </Link>
             
             <Link
               href="/essays"
-              className="block bg-gray-900 text-white px-8 py-4 rounded-md font-semibold hover:bg-gray-800 transition-all border border-gray-600"
+              className="block"
+              data-btn="glass"
             >
               Read Latest Essays
             </Link>

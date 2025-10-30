@@ -43,7 +43,7 @@ export default function Header() {
             </Link>
             <Link 
               href="/playbook" 
-              className="bg-black text-white px-4 py-2 rounded-md font-semibold hover:bg-wfw-gray-dark hover:text-white transition-all btn-glitch"
+              className="btn-glass"
             >
               Get Playbook
             </Link>
@@ -91,7 +91,7 @@ export default function Header() {
             </Link>
             <Link 
               href="/playbook" 
-              className="inline-block mt-2 bg-black text-white px-4 py-2 rounded-md font-semibold"
+              className="inline-block mt-2 btn-glass"
             >
               Get Playbook
             </Link>

@@ -8,6 +8,24 @@
   --background-end-rgb: 31, 41, 55;
 }
 
+/* System-wide text rendering and smoothing */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1, "clig" 1, "calt" 1;
+  font-synthesis-weight: none;
+}
+
+/* Scale base size slightly on larger screens for readability */
+@media (min-width: 768px) {
+  html { font-size: 17px; }
+}
+@media (min-width: 1024px) {
+  html { font-size: 18px; }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -17,6 +35,16 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Default reading comfort */
+p, li { line-height: 1.7; letter-spacing: 0.01em; }
+
+/* Utility for small copy with better contrast and size */
+.microcopy { font-size: 0.95rem; line-height: 1.7; letter-spacing: 0.01em; color: #d1d5db; }
+
+/* Inputs: larger text for readability */
+input, textarea { font-size: 1rem; }
+::placeholder { color: #9ca3af; }
 
 /* Button hover glitch effect */
 @keyframes glitch {
@@ -167,6 +195,21 @@ body {
     rgba(255, 255, 255, 0) 100%
   );
   animation: shimmer 3s ease-in-out infinite;
+  /* Fade the leading/trailing edges of the sheen for realism */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,1) 18%,
+    rgba(0,0,0,1) 82%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,1) 18%,
+    rgba(0,0,0,1) 82%,
+    transparent 100%
+  );
 }
 
 @keyframes shimmer {
@@ -215,5 +258,160 @@ body {
     opacity: 1;
     transform: scale(1.05);
   }
+}
+
+/* Subtle floating/parallax for skull background */
+.skull-anim {
+  animation: skull-float 24s ease-in-out infinite;
+}
+
+@keyframes skull-float {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  25%  { transform: translate3d(2%, -1%, 0) scale(1.02); }
+  50%  { transform: translate3d(-1%, 2%, 0) scale(1.015); }
+  75%  { transform: translate3d(1%, -2%, 0) scale(1.01); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* Paper sheet styling for essay bodies */
+/* Modern glass button with thick top border */
+.btn-glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top-width: 4px; /* thick upper border */
+  border-radius: 14px;
+  padding: 0.75rem 1.25rem;
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.35),
+    inset 0 -1px 0 rgba(255,255,255,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.btn-glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(255,255,255,0) 40%,
+    rgba(255,255,255,0.35) 50%,
+    rgba(255,255,255,0) 60%
+  );
+  background-size: 200% 100%;
+  background-position: -80% 0;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  transition: opacity .2s ease;
+}
+.btn-glass:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 12px 34px rgba(0,0,0,0.35),
+    0 0 12px rgba(0, 255, 249, 0.15);
+}
+.btn-glass:hover::after {
+  opacity: 1;
+  animation: btn-shimmer 1.5s ease; /* one pass per hover */
+}
+.btn-glass:active { transform: translateY(0); }
+
+@keyframes btn-shimmer {
+  0% { background-position: -80% 0; }
+  100% { background-position: 120% 0; }
+}
+
+/* Utility attribute alias so we can "utilitize" quickly */
+[data-btn="glass"] { @apply btn-glass; }
+[data-btn-variant="primary"] { border-top-color: rgba(0,255,249,0.8); }
+[data-btn-variant="ghost"] { background: rgba(255,255,255,0.04); }
+
+.paper-sheet {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35),
+    0 2px 8px rgba(0,0,0,0.25);
+}
+.paper-sheet::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/paper-back.png') center/cover no-repeat;
+  opacity: 0.18; /* subtle texture */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.paper-sheet h1,
+.paper-sheet h2,
+.paper-sheet h3,
+.paper-sheet h4,
+.paper-sheet h5,
+.paper-sheet h6 { color: #111827; /* gray-900 */ }
+.paper-sheet p,
+.paper-sheet li { color: #1f2937; /* gray-800 */ }
+.paper-sheet a { color: #60a5fa; text-decoration: underline; }
+.paper-sheet strong { color: #111827; }
+.paper-sheet ol,
+.paper-sheet ul { padding-left: 1.25rem; }
+.paper-sheet ol { list-style: decimal; }
+.paper-sheet ul { list-style: disc; }
+
+/* Fluorescent separator line centered over existing borders */
+.fluoro-edge { position: relative; }
+.fluoro-edge::before,
+.fluoro-edge::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px; /* slightly thicker to carry a bright core */
+  background:
+    /* bright white core line */
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.95) 49%,
+      rgba(255,255,255,0.95) 51%,
+      rgba(255,255,255,0) 100%
+    ),
+    /* cyan-magenta neon wash */
+    linear-gradient(
+      90deg,
+      rgba(0, 255, 249, 0) 0%,
+      rgba(0, 255, 249, 0.95) 12%,
+      rgba(0, 255, 249, 1) 25%,
+      rgba(168, 85, 247, 0.45) 50%,
+      rgba(0, 255, 249, 1) 75%,
+      rgba(0, 255, 249, 0.95) 88%,
+      rgba(0, 255, 249, 0) 100%
+    );
+  filter: drop-shadow(0 0 8px rgba(0, 255, 249, 0.8)) drop-shadow(0 0 18px rgba(168, 85, 247, 0.35));
+  mix-blend-mode: screen;
+  z-index: 1;
+  pointer-events: none;
+}
+/* Top line centered over top border */
+.fluoro-edge::before { top: 0; transform: translateY(-50%); }
+/* Bottom line centered over bottom border */
+.fluoro-edge::after { bottom: 0; transform: translateY(50%); }
+
+/* Optional gentle pulsing */
+.fluoro-edge--pulse::before,
+.fluoro-edge--pulse::after {
+  animation: fluoro-pulse 3.6s ease-in-out infinite;
+}
+
+@keyframes fluoro-pulse {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(0,255,249,.45)) drop-shadow(0 0 10px rgba(168,85,247,.18)); opacity: .9; }
+  50%      { filter: drop-shadow(0 0 10px rgba(0,255,249,.75)) drop-shadow(0 0 18px rgba(168,85,247,.28)); opacity: 1; }
 }
 
