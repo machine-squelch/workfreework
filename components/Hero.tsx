@@ -26,11 +26,11 @@ export default function Hero() {
       }}></div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-center justify-center px-4">
-        <div className="max-w-4xl w-full mx-auto text-center flex flex-col items-center">
+      <div className="relative z-10 h-full grid place-items-center px-4">
+        <div className="max-w-4xl w-full mx-auto text-center flex flex-col items-center gap-16 md:gap-20">
           
           {/* Glass Card Behind Logo - 25px padding, matches logo dimensions */}
-          <div className="relative mb-28 md:mb-32 flex justify-center">
+          <div className="relative flex justify-center">
             {/* Glass card wraps logo with 25px padding on all sides */}
             <div className="glass-card rounded-3xl p-[25px]">
               <Image 
