@@ -217,6 +217,40 @@ body {
   }
 }
 
+/* Paper sheet styling for essay bodies */
+.paper-sheet {
+  position: relative;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35),
+    0 2px 8px rgba(0,0,0,0.25);
+}
+.paper-sheet::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('/paper-back.png') center/cover no-repeat;
+  opacity: 0.18; /* subtle texture */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.paper-sheet h1,
+.paper-sheet h2,
+.paper-sheet h3,
+.paper-sheet h4,
+.paper-sheet h5,
+.paper-sheet h6 { color: #111827; /* gray-900 */ }
+.paper-sheet p,
+.paper-sheet li { color: #1f2937; /* gray-800 */ }
+.paper-sheet a { color: #60a5fa; text-decoration: underline; }
+.paper-sheet strong { color: #111827; }
+.paper-sheet ol,
+.paper-sheet ul { padding-left: 1.25rem; }
+.paper-sheet ol { list-style: decimal; }
+.paper-sheet ul { list-style: disc; }
+
 /* Fluorescent separator line centered over existing borders */
 .fluoro-edge { position: relative; }
 .fluoro-edge::before,

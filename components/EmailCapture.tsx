@@ -24,8 +24,8 @@ export default function EmailCapture({
     const email = formData.get('email')
 
     try {
-      // Submit directly to Formspree
-      const response = await fetch('https://formspree.io/f/xovplqqk', {
+      // Submit via our server to avoid CORS and standardize handling
+      const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
@@ -37,7 +37,8 @@ export default function EmailCapture({
         e.currentTarget.reset()
       } else {
         setStatus('error')
-        setMessage('Something went wrong. Please try again.')
+        const data = await response.json().catch(() => ({}))
+        setMessage(data?.error || 'Something went wrong. Please try again.')
       }
     } catch (error) {
       setStatus('error')

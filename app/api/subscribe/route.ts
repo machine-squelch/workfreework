@@ -11,13 +11,29 @@ export async function POST(request: Request) {
       )
     }
 
-    // Formspree handles the email capture automatically
-    // No need for additional API calls since we're using @formspree/react
-    
-    console.log('New subscription via Formspree:', email)
+    // Forward to Formspree server-side to avoid CORS issues
+    const res = await fetch('https://formspree.io/f/xovplqqk', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+      cache: 'no-store',
+    })
+
+    if (!res.ok) {
+      const errText = await res.text().catch(() => '')
+      return NextResponse.json(
+        { error: 'Upstream form error', details: errText },
+        { status: 502 }
+      )
+    }
+
+    const data = await res.json().catch(() => ({}))
 
     return NextResponse.json(
-      { message: 'Subscription successful!' },
+      { message: 'Subscription successful!', data },
       { status: 200 }
     )
   } catch (error) {

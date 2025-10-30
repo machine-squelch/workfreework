@@ -245,15 +245,16 @@ export default function EssayPage({ params }: { params: { slug: string } }) {
 
       {/* Content */}
       <article className="max-w-4xl mx-auto px-4 py-16">
-        <div 
-          className="prose prose-lg max-w-none"
-          style={{
-            fontSize: '1.125rem',
-            lineHeight: '1.75',
-            color: '#fff',
-          }}
-        >
-          <div dangerouslySetInnerHTML={{ __html: essay.content }} />
+        <div className="paper-sheet p-6 md:p-10">
+          <div
+            style={{
+              fontSize: '1.125rem',
+              lineHeight: '1.75',
+              color: '#1f2937',
+            }}
+          >
+            <div dangerouslySetInnerHTML={{ __html: essay.content }} />
+          </div>
         </div>
       </article>
 
