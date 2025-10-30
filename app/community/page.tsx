@@ -53,32 +53,32 @@ export default function CommunityPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
-              <h3 className="text-xl font-bold mb-3 text-black">🤝 Peer Support</h3>
+            <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
+              <h3 className="text-xl font-bold mb-3 text-white">🤝 Peer Support</h3>
               <p className="text-gray-300">
                 Share wins, troubleshoot automation setbacks, and get honest feedback 
                 from people who get it.
               </p>
             </div>
 
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
-              <h3 className="text-xl font-bold mb-3 text-black">🛠️ Shared Resources</h3>
+            <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
+              <h3 className="text-xl font-bold mb-3 text-white">🛠️ Shared Resources</h3>
               <p className="text-gray-300">
                 Access member-exclusive templates, automation scripts, and tool databases 
                 maintained by the community.
               </p>
             </div>
 
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
-              <h3 className="text-xl font-bold mb-3 text-black">💡 Weekly Co-Working</h3>
+            <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
+              <h3 className="text-xl font-bold mb-3 text-white">💡 Weekly Co-Working</h3>
               <p className="text-gray-300">
                 Virtual co-working sessions for building side projects, automating work, 
                 and shipping actual products.
               </p>
             </div>
 
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
-              <h3 className="text-xl font-bold mb-3 text-black">🎓 Skill Shares</h3>
+            <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
+              <h3 className="text-xl font-bold mb-3 text-white">🎓 Skill Shares</h3>
               <p className="text-gray-300">
                 Monthly workshops where members teach each other: AI prompts, no-code tools, 
                 micro-SaaS ideas, freelance tactics.
@@ -168,10 +168,10 @@ export default function CommunityPage() {
             </div>
 
             {/* Member */}
-            <div className="bg-black p-8 rounded-lg shadow-lg transform scale-105">
-              <div className="text-xs font-bold mb-2 text-black">MOST POPULAR</div>
+            <div className="bg-white p-8 rounded-lg shadow-2xl transform scale-105 border-4 border-gray-300">
+              <div className="text-xs font-bold mb-2 text-black bg-yellow-400 px-2 py-1 rounded">MOST POPULAR</div>
               <h3 className="text-2xl font-bold mb-2 text-black">Member</h3>
-              <p className="text-4xl font-bold mb-6 text-black">$15<span className="text-lg text-gray-300">/mo</span></p>
+              <p className="text-4xl font-bold mb-6 text-black">$15<span className="text-lg text-gray-600">/mo</span></p>
               <ul className="space-y-3 text-black mb-8">
                 <li>✓ Everything in Free</li>
                 <li>✓ Private Discord/Slack access</li>
@@ -179,7 +179,7 @@ export default function CommunityPage() {
                 <li>✓ Weekly co-working sessions</li>
                 <li>✓ Member skill shares</li>
               </ul>
-              <button className="w-full bg-black text-black px-6 py-3 rounded-md font-semibold hover:bg-gray-900 btn-glitch">
+              <button className="w-full bg-black text-white px-6 py-3 rounded-md font-semibold hover:bg-gray-800 btn-glitch">
                 Join Waitlist
               </button>
             </div>
@@ -210,13 +210,13 @@ export default function CommunityPage() {
             Community Principles
           </h2>
           
-          <div className="bg-black text-white p-8 rounded-lg">
-            <ul className="space-y-4 text-lg">
-              <li><strong className="text-black">Real over performative.</strong> Share actual progress, not LinkedIn humble-brags.</li>
-              <li><strong className="text-black">Help over hustle.</strong> We build each other up, not compete for clout.</li>
-              <li><strong className="text-black">Tools over theory.</strong> Show your work, share your setups, teach your process.</li>
-              <li><strong className="text-black">Critique capitalism, build alternatives.</strong> Complaining is fine. Building solutions is better.</li>
-              <li><strong className="text-black">Humans first.</strong> Automation serves people, not the other way around.</li>
+          <div className="bg-black text-white p-8 rounded-lg border-2 border-gray-600">
+            <ul className="space-y-4 text-lg text-white">
+              <li><strong className="text-white">Real over performative.</strong> Share actual progress, not LinkedIn humble-brags.</li>
+              <li><strong className="text-white">Help over hustle.</strong> We build each other up, not compete for clout.</li>
+              <li><strong className="text-white">Tools over theory.</strong> Show your work, share your setups, teach your process.</li>
+              <li><strong className="text-white">Critique capitalism, build alternatives.</strong> Complaining is fine. Building solutions is better.</li>
+              <li><strong className="text-white">Humans first.</strong> Automation serves people, not the other way around.</li>
             </ul>
           </div>
         </div>
