@@ -39,13 +39,13 @@ export default function CommunityPage() {
       {/* What is the Collective */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">
+          <h2 className="text-4xl font-bold mb-12 text-center text-white">
             What Is the Collective?
           </h2>
           
-          <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 mb-8 border border-gray-700">
+          <div className="bg-gray-900 p-8 rounded-lg border-2 border-gray-600 mb-8 shadow-xl">
             <p className="text-lg text-gray-300 leading-relaxed">
-              The <strong>WorkFreeWork Collective</strong> is a private community for people who 
+              The <strong className="text-white">WorkFreeWork Collective</strong> is a private community for people who 
               want to escape the traditional employment trap. We share automation workflows, 
               critique each other's side projects, discuss policy changes (like UBI), and hold 
               each other accountable as we build lives with more autonomy and less busywork.
@@ -91,7 +91,7 @@ export default function CommunityPage() {
       {/* Who It's For */}
       <section className="py-20 px-4 bg-gray-900">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">
+          <h2 className="text-4xl font-bold mb-12 text-center text-white">
             Who's in the Collective?
           </h2>
           
@@ -99,8 +99,8 @@ export default function CommunityPage() {
             <div className="flex items-start">
               <span className="text-3xl mr-4">👩‍💻</span>
               <div>
-                <h3 className="font-bold text-lg mb-1">Knowledge workers automating their day jobs</h3>
-                <p className="text-gray-600">
+                <h3 className="font-bold text-lg mb-1 text-white">Knowledge workers automating their day jobs</h3>
+                <p className="text-gray-300">
                   You've realized half your tasks could be scripted, and you'd rather build 
                   side projects than climb the corporate ladder.
                 </p>
@@ -110,8 +110,8 @@ export default function CommunityPage() {
             <div className="flex items-start">
               <span className="text-3xl mr-4">🎨</span>
               <div>
-                <h3 className="font-bold text-lg mb-1">Freelancers and creators monetizing their skills</h3>
-                <p className="text-gray-600">
+                <h3 className="font-bold text-lg mb-1 text-white">Freelancers and creators monetizing their skills</h3>
+                <p className="text-gray-300">
                   You're building alternative income streams: digital products, consulting, 
                   content, or small tools.
                 </p>
@@ -121,8 +121,8 @@ export default function CommunityPage() {
             <div className="flex items-start">
               <span className="text-3xl mr-4">🔬</span>
               <div>
-                <h3 className="font-bold text-lg mb-1">Policy nerds and future-watchers</h3>
-                <p className="text-gray-600">
+                <h3 className="font-bold text-lg mb-1 text-white">Policy nerds and future-watchers</h3>
+                <p className="text-gray-300">
                   You follow UBI experiments, labor law changes, and want to discuss what 
                   a post-work society actually looks like.
                 </p>
@@ -132,8 +132,8 @@ export default function CommunityPage() {
             <div className="flex items-start">
               <span className="text-3xl mr-4">🚀</span>
               <div>
-                <h3 className="font-bold text-lg mb-1">Builders shipping small, profitable projects</h3>
-                <p className="text-gray-600">
+                <h3 className="font-bold text-lg mb-1 text-white">Builders shipping small, profitable projects</h3>
+                <p className="text-gray-300">
                   You're interested in micro-SaaS, productized services, and businesses that 
                   run without full-time commitment.
                 </p>
@@ -146,7 +146,7 @@ export default function CommunityPage() {
       {/* Membership Tiers */}
       <section className="py-20 px-4 bg-gray-800">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">
+          <h2 className="text-4xl font-bold mb-12 text-center text-white">
             Membership Options
           </h2>
           
@@ -206,7 +206,7 @@ export default function CommunityPage() {
       {/* Community Rules */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-8 text-center">
+          <h2 className="text-4xl font-bold mb-8 text-center text-white">
             Community Principles
           </h2>
           
