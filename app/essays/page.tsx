@@ -118,13 +118,13 @@ export default function EssaysPage() {
             >
               <article className="bg-gray-900 p-8 rounded-lg shadow-sm hover:shadow-lg transition-all h-full border border-gray-700">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-semibold text-black">
+                  <span className="text-sm font-semibold text-gray-300">
                     {essay.category}
                   </span>
                   <span className="text-sm text-gray-500">{essay.readTime}</span>
                 </div>
                 
-                <h2 className="text-2xl font-bold mb-3 group-hover:text-black transition-colors">
+                <h2 className="text-2xl font-bold mb-3 text-white">
                   {essay.title}
                 </h2>
                 
@@ -140,7 +140,7 @@ export default function EssaysPage() {
                       day: 'numeric' 
                     })}
                   </span>
-                  <span className="text-black font-semibold group-hover:text-black">
+                  <span className="text-gray-300 font-semibold">
                     Read →
                   </span>
                 </div>
@@ -158,10 +158,10 @@ export default function EssaysPage() {
 
         {/* Newsletter CTA */}
         <section className="bg-black p-12 rounded-lg text-center">
-          <h2 className="text-4xl font-bold mb-4 text-black">
+          <h2 className="text-4xl font-bold mb-4 text-white">
             Get New Essays in Your Inbox
           </h2>
-          <p className="text-lg text-black mb-8">
+          <p className="text-lg text-gray-300 mb-8">
             One thoughtful essay per week. No spam, no fluff.
           </p>
           <EmailCapture 

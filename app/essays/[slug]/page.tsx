@@ -250,7 +250,7 @@ export default function EssayPage({ params }: { params: { slug: string } }) {
           style={{
             fontSize: '1.125rem',
             lineHeight: '1.75',
-            color: '#333',
+            color: '#fff',
           }}
         >
           <div dangerouslySetInnerHTML={{ __html: essay.content }} />
