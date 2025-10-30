@@ -57,7 +57,7 @@ export default function PlaybookPage() {
             {/* Step 1 */}
             <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-start">
-                <div className="text-4xl font-bold text-black mr-6">01</div>
+                <div className="text-4xl font-bold text-white/40 mr-6">01</div>
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Audit: Where Your Time Actually Goes</h3>
                   <p className="text-gray-300">
@@ -71,7 +71,7 @@ export default function PlaybookPage() {
             {/* Step 2 */}
             <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-start">
-                <div className="text-4xl font-bold text-black mr-6">02</div>
+                <div className="text-4xl font-bold text-white/40 mr-6">02</div>
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Automate: 8 Tools & Prompts for Top Tasks</h3>
                   <p className="text-gray-300">
@@ -85,7 +85,7 @@ export default function PlaybookPage() {
             {/* Step 3 */}
             <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-start">
-                <div className="text-4xl font-bold text-black mr-6">03</div>
+                <div className="text-4xl font-bold text-white/40 mr-6">03</div>
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Protect: Data, Privacy & Vendor Lock-in</h3>
                   <p className="text-gray-300">
@@ -99,7 +99,7 @@ export default function PlaybookPage() {
             {/* Step 4 */}
             <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-start">
-                <div className="text-4xl font-bold text-black mr-6">04</div>
+                <div className="text-4xl font-bold text-white/40 mr-6">04</div>
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Replace: Alternative Income & Micro-Offers</h3>
                   <p className="text-gray-300">
@@ -113,7 +113,7 @@ export default function PlaybookPage() {
             {/* Step 5 */}
             <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 shadow-sm hover:shadow-md transition-shadow">
               <div className="flex items-start">
-                <div className="text-4xl font-bold text-black mr-6">05</div>
+                <div className="text-4xl font-bold text-white/40 mr-6">05</div>
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Scale: Productize Your Automation</h3>
                   <p className="text-gray-300">

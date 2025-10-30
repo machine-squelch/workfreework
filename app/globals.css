@@ -303,18 +303,30 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  height: 2px; /* thinner than typical 4px border */
-  background: linear-gradient(
-    90deg,
-    rgba(0, 255, 249, 0) 0%,
-    rgba(0, 255, 249, 0.9) 12%,
-    rgba(0, 255, 249, 1) 25%,
-    rgba(168, 85, 247, 0.35) 50%,
-    rgba(0, 255, 249, 1) 75%,
-    rgba(0, 255, 249, 0.9) 88%,
-    rgba(0, 255, 249, 0) 100%
-  );
-  filter: drop-shadow(0 0 6px rgba(0, 255, 249, 0.6)) drop-shadow(0 0 14px rgba(168, 85, 247, 0.25));
+  height: 3px; /* slightly thicker to carry a bright core */
+  background:
+    /* bright white core line */
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0) 0%,
+      rgba(255,255,255,0.95) 49%,
+      rgba(255,255,255,0.95) 51%,
+      rgba(255,255,255,0) 100%
+    ),
+    /* cyan-magenta neon wash */
+    linear-gradient(
+      90deg,
+      rgba(0, 255, 249, 0) 0%,
+      rgba(0, 255, 249, 0.95) 12%,
+      rgba(0, 255, 249, 1) 25%,
+      rgba(168, 85, 247, 0.45) 50%,
+      rgba(0, 255, 249, 1) 75%,
+      rgba(0, 255, 249, 0.95) 88%,
+      rgba(0, 255, 249, 0) 100%
+    );
+  filter: drop-shadow(0 0 8px rgba(0, 255, 249, 0.8)) drop-shadow(0 0 18px rgba(168, 85, 247, 0.35));
+  mix-blend-mode: screen;
+  z-index: 1;
   pointer-events: none;
 }
 /* Top line centered over top border */
