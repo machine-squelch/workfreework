@@ -1,7 +1,13 @@
 import type { Metadata } from 'next'
+import { Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import dynamic from 'next/dynamic'
+
+const RonnyWidget = dynamic(() => import('@/components/RonnyWidget'), { ssr: false })
+
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['400','500','700'] })
 
 export const metadata: Metadata = {
   title: 'WorkFreeWork - Design Your Life When AI Eats Your Task List',
@@ -49,12 +55,13 @@ export default function RootLayout({
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="format-detection" content="telephone=no" />
       </head>
-      <body className="font-sans antialiased">
+      <body className={`${spaceGrotesk.className} antialiased`}>
         <Header />
         <main className="min-h-screen">
           {children}
         </main>
         <Footer />
+        <RonnyWidget />
       </body>
     </html>
   )

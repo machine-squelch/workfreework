@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
 
           {/* The Lie They Sold You */}
-          <section className="py-16 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white">
+          <section className="py-16 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
             <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">The Lie They Sold You</h2>
           <div className="text-lg md:text-xl space-y-4 text-gray-300 leading-relaxed">
@@ -285,7 +285,7 @@ export default function Home() {
           </section>
 
           {/* Membership CTA */}
-          <section className="py-20 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white">
+          <section className="py-20 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
             <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ready to Go Deeper?

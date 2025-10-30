@@ -38,11 +38,11 @@ const essays = [
   },
   {
     slug: 'work-is-a-19th-century-patch',
-    title: 'Work Is a 19th-Century Patch File — Time for an Upgrade',
-    excerpt: 'What comes after the industrial-era work model?',
+    title: 'Work Is a 19th-Century Patch (And It’s Starting to Peel)',
+    excerpt: 'Stop patching the 1800s model. Start upgrading to human-first work.',
     date: '2025-03-01',
-    readTime: '10 min read',
-    category: 'Analysis',
+    readTime: '7 min read',
+    category: 'Manifesto',
   },
   {
     slug: 'quit-capitalism',

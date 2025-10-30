@@ -22,14 +22,14 @@ export default function CommunityPage() {
     <div className="bg-gray-800 min-h-screen">
       {/* Hero */}
       <section className="py-20 px-4 bg-gradient-to-b from-black to-wfw-gray">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-black">
+        <div className="max-w-4xl mx-auto text-center text-white">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
             The WorkFree Collective
           </h1>
-          <p className="text-2xl text-black mb-8">
+          <p className="text-2xl text-gray-200 mb-8">
             A digital co-op for builders, makers, and post-work escape artists.
           </p>
-          <p className="text-lg text-gray-800 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             No hustle porn. No "mindset coaches." No spammy crypto bros. 
             Just people designing better systems and helping each other automate their way to freedom.
           </p>

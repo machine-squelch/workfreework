@@ -217,3 +217,41 @@ body {
   }
 }
 
+/* Fluorescent separator line centered over existing borders */
+.fluoro-edge { position: relative; }
+.fluoro-edge::before,
+.fluoro-edge::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px; /* thinner than typical 4px border */
+  background: linear-gradient(
+    90deg,
+    rgba(0, 255, 249, 0) 0%,
+    rgba(0, 255, 249, 0.9) 12%,
+    rgba(0, 255, 249, 1) 25%,
+    rgba(168, 85, 247, 0.35) 50%,
+    rgba(0, 255, 249, 1) 75%,
+    rgba(0, 255, 249, 0.9) 88%,
+    rgba(0, 255, 249, 0) 100%
+  );
+  filter: drop-shadow(0 0 6px rgba(0, 255, 249, 0.6)) drop-shadow(0 0 14px rgba(168, 85, 247, 0.25));
+  pointer-events: none;
+}
+/* Top line centered over top border */
+.fluoro-edge::before { top: 0; transform: translateY(-50%); }
+/* Bottom line centered over bottom border */
+.fluoro-edge::after { bottom: 0; transform: translateY(50%); }
+
+/* Optional gentle pulsing */
+.fluoro-edge--pulse::before,
+.fluoro-edge--pulse::after {
+  animation: fluoro-pulse 3.6s ease-in-out infinite;
+}
+
+@keyframes fluoro-pulse {
+  0%, 100% { filter: drop-shadow(0 0 5px rgba(0,255,249,.45)) drop-shadow(0 0 10px rgba(168,85,247,.18)); opacity: .9; }
+  50%      { filter: drop-shadow(0 0 10px rgba(0,255,249,.75)) drop-shadow(0 0 18px rgba(168,85,247,.28)); opacity: 1; }
+}
+
