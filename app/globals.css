@@ -18,6 +18,14 @@ html {
   font-synthesis-weight: none;
 }
 
+/* Scale base size slightly on larger screens for readability */
+@media (min-width: 768px) {
+  html { font-size: 17px; }
+}
+@media (min-width: 1024px) {
+  html { font-size: 18px; }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -27,6 +35,16 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Default reading comfort */
+p, li { line-height: 1.7; letter-spacing: 0.01em; }
+
+/* Utility for small copy with better contrast and size */
+.microcopy { font-size: 0.95rem; line-height: 1.7; letter-spacing: 0.01em; color: #d1d5db; }
+
+/* Inputs: larger text for readability */
+input, textarea { font-size: 1rem; }
+::placeholder { color: #9ca3af; }
 
 /* Button hover glitch effect */
 @keyframes glitch {
