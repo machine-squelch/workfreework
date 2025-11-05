@@ -19,13 +19,13 @@ export default function PricingPage() {
       <section className="py-20 px-4 bg-gradient-to-b from-gray-800 to-gray-900">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white">
-            Choose Your Path to Freedom
+            Choose Your Weapon
           </h1>
           <p className="text-xl text-gray-300 mb-4 max-w-3xl mx-auto">
-            Unsubscribe from work. Subscribe to being.
+            You aren't here to take notes. You're here to build an asset that prints revenue.
           </p>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Three ways to escape the corporate leash and design a life with real autonomy.
+            No pitch decks. No gatekeepers. Pick your level of commitment.
           </p>
         </div>
       </section>
@@ -97,7 +97,7 @@ export default function PricingPage() {
                   <span className="text-gray-400 ml-2">/month</span>
                 </div>
                 <p className="text-gray-400 text-sm">
-                  Unsubscribe from work. Subscribe to freedom.
+                  Your infinite upgrade path. Not a gym membership.
                 </p>
               </div>
 
@@ -141,7 +141,7 @@ export default function PricingPage() {
               </Link>
               
               <p className="text-xs text-gray-500 text-center mt-3">
-                First 100 members get lifetime 20% discount
+                First 100 slots get lifetime 20% discount. Clock's ticking.
               </p>
             </div>
 
@@ -154,7 +154,7 @@ export default function PricingPage() {
                   <span className="text-gray-400 ml-2">/month</span>
                 </div>
                 <p className="text-gray-400 text-sm">
-                  Reprogram your OS for a post-labor world
+                  Build your revenue engine. Ship results, not resumes.
                 </p>
               </div>
 
@@ -343,10 +343,10 @@ export default function PricingPage() {
       <section className="py-20 px-4 bg-gray-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Ready to Escape the Hamster Wheel?
+            Ready to Build or Keep Scrolling?
           </h2>
           <p className="text-xl text-gray-300 mb-10">
-            Join 1,000+ people designing lives with more autonomy and less busywork.
+            Join 1,000+ rebels replacing clock-punching with revenue systems.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -354,13 +354,13 @@ export default function PricingPage() {
               href="/newsletter"
               data-btn="glass"
             >
-              Start with Free Newsletter
+              Start Free (No Card Required)
             </Link>
             <Link
               href="/api/checkout?tier=collective"
               data-btn="glass"
             >
-              Join The Collective - $15/mo
+              Claim Your Build Slot – $15/mo →
             </Link>
           </div>
         </div>

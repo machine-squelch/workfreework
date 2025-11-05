@@ -16,8 +16,8 @@ export default function Home() {
           <div className="text-lg md:text-xl space-y-4 text-gray-300 leading-relaxed">
             <p className="text-2xl font-semibold text-white">"Work gives life meaning."</p>
             <p>Yeah — if your meaning is burnout, debt, and Zoom calls that could've been emails.</p>
-            <p>WorkFreeWork is a framework that shows you how to replace labor with leverage.</p>
-            <p className="text-white font-semibold">We teach you to build, automate, and profit — without selling your soul (or your sanity).</p>
+            <p className="text-white font-bold text-xl">You aren't here to take notes.</p>
+            <p className="text-white font-semibold">You're here to build an asset that prints revenue.</p>
           </div>
           <Link 
             href="/essays"
@@ -85,7 +85,7 @@ export default function Home() {
                 </div>
                 <div className="mt-8 p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl border border-green-500/30">
                   <p className="text-4xl font-bold text-green-400 mb-2">= $3,000–$7,000/month total value</p>
-                  <p className="text-xl font-semibold text-white">We turn AI from a threat into your personal money machine.</p>
+                  <p className="text-xl font-semibold text-white">Turn AI from a threat into your personal revenue engine.</p>
                 </div>
               </div>
         </div>
@@ -104,8 +104,8 @@ export default function Home() {
               <div className="text-4xl mb-4">📖</div>
               <h3 className="text-2xl font-bold mb-3">The Playbook</h3>
               <p className="text-gray-300 mb-4">
-                Practical systems to replace jobs with projects. Automate what can be automated. 
-                Monetize what can't. Keep your time, not your boss's calendar.
+                Systems that replace labor with leverage. Automate the boring. 
+                Monetize the rest. Keep your time, not your boss's calendar.
               </p>
               <Link 
                 href="/playbook"
@@ -120,8 +120,8 @@ export default function Home() {
               <div className="text-4xl mb-4">🛠️</div>
               <h3 className="text-2xl font-bold mb-3">Tools + Templates</h3>
               <p className="text-gray-300 mb-4">
-                Real setups, not theory. Scripts, workflows, and blueprints tested by creators 
-                who replaced their day jobs with small, autonomous income stacks.
+                Battle-tested scripts and workflows from people who actually escaped. 
+                Real systems. Real results. Zero theory.
               </p>
               <Link 
                 href="/tools"
@@ -136,8 +136,8 @@ export default function Home() {
               <div className="text-4xl mb-4">✍️</div>
               <h3 className="text-2xl font-bold mb-3">Essays & Dispatches</h3>
               <p className="text-gray-300 mb-4">
-                Sharp takes on the post-work economy. Economics, psychology, and culture — 
-                stripped of MBA jargon and self-help fluff.
+                Raw analysis of the post-work economy. 
+                No MBA jargon. No self-help fluff. Just truth.
               </p>
               <Link 
                 href="/essays"
@@ -152,8 +152,8 @@ export default function Home() {
               <div className="text-4xl mb-4">🤝</div>
               <h3 className="text-2xl font-bold mb-3">The Collective</h3>
               <p className="text-gray-300 mb-4">
-                A digital co-op for free humans. Collaborate, share automations, and help 
-                each other escape the hamster wheel with actual tech and accountability.
+                A digital co-op for rebels escaping wage slavery. 
+                Share automations. Build together. Hold each other accountable.
               </p>
               <Link 
                 href="/community"
@@ -236,10 +236,10 @@ export default function Home() {
           
           <div className="space-y-8 mb-12">
                 <div className="glass-card p-8 rounded-2xl text-center border-4 border-white shadow-2xl">
-                  <h3 className="text-2xl font-bold mb-6 text-white">Every dollar you invest in automation multiplies:</h3>
+                  <h3 className="text-2xl font-bold mb-6 text-white">The arithmetic is violent:</h3>
                   <div className="space-y-4 text-lg text-gray-200">
-                    <p className="text-xl">• 1 month of learning = 12 months of time saved</p>
-                    <p className="text-xl">• 1 automation = 100 tasks gone forever</p>
+                    <p className="text-xl">• 1 month of learning = 12 months of freedom</p>
+                    <p className="text-xl">• 1 automation = 100 tasks deleted forever</p>
                     <p className="text-xl">• 1 skill = infinite leverage</p>
                   </div>
                 </div>
@@ -259,8 +259,8 @@ export default function Home() {
               <div className="space-y-6 text-lg text-gray-300 leading-relaxed mb-12">
                 <p className="text-2xl font-semibold text-white">The future isn't 9-to-5.</p>
                 <p className="text-2xl font-semibold text-white">It's 24/7 leverage.</p>
-                <p>WorkFreeWork isn't about quitting — it's about evolving.</p>
-                <p>You can stay in the system, or you can automate your exit.</p>
+                <p className="text-xl text-white">You can stay in the system, or automate your exit.</p>
+                <p className="text-xl">Your move.</p>
               </div>
               
               {/* May-z the Dog */}
@@ -281,7 +281,7 @@ export default function Home() {
                 className="inline-flex items-center text-lg"
                 data-btn="glass"
               >
-                Join the WorkFree Movement
+                Enter the System →
               </Link>
             </div>
           </section>
@@ -290,24 +290,24 @@ export default function Home() {
           <section className="py-20 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
             <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Go Deeper?
+            Ready to Build For Real?
           </h2>
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-            Join The Collective: a private community of builders, makers, and post-work escape artists.
+            Built for creators, founders, solopreneurs, and rebels tired of trading time for money.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
               <h3 className="font-bold text-lg mb-2 text-white">Weekly Playbooks</h3>
-              <p className="text-gray-400 text-sm">Automation tactics you can implement today</p>
+              <p className="text-gray-400 text-sm">Automation tactics that ship results, not theory</p>
             </div>
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
               <h3 className="font-bold text-lg mb-2 text-white">Private Community</h3>
-              <p className="text-gray-400 text-sm">Discord access with fellow freedom-seekers</p>
+              <p className="text-gray-400 text-sm">Discord with people actually building their exit</p>
             </div>
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Exclusive Tools</h3>
-              <p className="text-gray-400 text-sm">Templates, scripts, and resources</p>
+              <h3 className="font-bold text-lg mb-2 text-white">Battle-Tested Tools</h3>
+              <p className="text-gray-400 text-sm">Scripts and systems that actually work</p>
             </div>
           </div>
 
@@ -324,7 +324,7 @@ export default function Home() {
               className="text-lg inline-block"
               data-btn="glass"
             >
-              Join for $15/month →
+              Claim Your Slot – $15/mo →
             </Link>
           </div>
 
