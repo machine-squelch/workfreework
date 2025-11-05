@@ -59,8 +59,17 @@ export default function Hero() {
                 AI isn't stealing jobs — it's freeing people who know how to use it.
               </p>
               
+              <p className="text-xl md:text-2xl font-bold text-white mb-4 max-w-3xl mx-auto">
+                Build a company in hours, not fiscal quarters.
+              </p>
+              
+              <p className="text-lg md:text-xl text-gray-300 mb-2 max-w-3xl mx-auto">
+                No pitch decks. No gatekeepers. No permission.
+              </p>
+              
               <p className="text-base md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                You don't need another hustle. You need a system that pays you for being efficient.
+                You aren't here to take notes.<br />
+                You're here to build an asset that prints revenue.
               </p>
 
               {/* Email Capture */}
@@ -74,10 +83,23 @@ export default function Hero() {
                 </p>
               </div>
 
+              {/* Primary CTA */}
+              <div className="mt-8">
+                <Link 
+                  href="/pricing"
+                  className="inline-block text-lg font-bold text-black bg-white hover:bg-gray-200 px-8 py-4 rounded-lg transition-all shadow-2xl"
+                >
+                  Enter the OS →
+                </Link>
+                <p className="text-sm text-gray-400 mt-3">
+                  Claim your build slot. Autonomy starts now.
+                </p>
+              </div>
+              
               {/* Secondary CTA */}
               <Link 
                 href="/essays"
-                className="inline-block text-white hover:text-gray-300 font-semibold border-b-2 border-white hover:border-gray-300 transition-all"
+                className="inline-block text-white hover:text-gray-300 font-semibold border-b-2 border-white hover:border-gray-300 transition-all mt-4"
               >
                 Start Printing Time →
               </Link>
