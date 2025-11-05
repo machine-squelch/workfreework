@@ -84,20 +84,20 @@ export default function PricingPage() {
               </Link>
             </div>
 
-            {/* The Collective - POPULAR */}
+            {/* Scale Engine Membership - POPULAR */}
             <div className="bg-gray-900 p-8 rounded-lg border-2 border-white shadow-2xl transform lg:scale-105 flex flex-col relative">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-1 rounded-full text-xs font-bold">
                 MOST POPULAR
               </div>
               
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-white mb-2">The Collective</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Scale Engine Membership</h3>
                 <div className="flex items-baseline mb-4">
                   <span className="text-5xl font-bold text-white">$15</span>
                   <span className="text-gray-400 ml-2">/month</span>
                 </div>
                 <p className="text-gray-400 text-sm">
-                  Unsubscribe from work. Subscribe to freedom.
+                  Ongoing automations, new AI agents, business upgrades.
                 </p>
               </div>
 
@@ -137,7 +137,7 @@ export default function PricingPage() {
                 className="w-full text-center block"
                 data-btn="glass"
               >
-                Join The Collective
+                Enter the OS →
               </Link>
               
               <p className="text-xs text-gray-500 text-center mt-3">
@@ -345,11 +345,14 @@ export default function PricingPage() {
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to Escape the Hamster Wheel?
           </h2>
-          <p className="text-xl text-gray-300 mb-10">
+          <p className="text-xl text-gray-300 mb-4">
+            Built for creators, founders, solopreneurs, and rebels tired of trading time for money.
+          </p>
+          <p className="text-lg text-gray-400 mb-10">
             Join 1,000+ people designing lives with more autonomy and less busywork.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
             <Link
               href="/newsletter"
               data-btn="glass"
@@ -360,9 +363,12 @@ export default function PricingPage() {
               href="/api/checkout?tier=collective"
               data-btn="glass"
             >
-              Join The Collective - $15/mo
+              Enter the OS →
             </Link>
           </div>
+          <p className="text-sm text-gray-500">
+            Claim your build slot. Autonomy starts now.
+          </p>
         </div>
       </section>
     </div>
