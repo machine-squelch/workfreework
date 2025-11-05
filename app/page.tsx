@@ -33,7 +33,7 @@ export default function Home() {
           {/* How We Save / Make You Money */}
           <section className="py-20 px-4 bg-gray-800 border-t-4 border-gray-600 border-b-4 border-gray-600">
             <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 neon-text">
             How We Save / Make You Money
           </h2>
           <p className="text-xl text-gray-300 text-center mb-16 max-w-3xl mx-auto">
