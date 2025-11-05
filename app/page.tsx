@@ -9,8 +9,26 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
 
+          {/* Own Your AI Workforce */}
+          <section className="py-20 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
+            <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Own Your AI Workforce</h2>
+          <div className="text-lg md:text-xl space-y-4 text-gray-300 leading-relaxed mb-8">
+            <p className="text-2xl font-semibold text-white mb-4">Runs in the cloud — or portable and offline.</p>
+            <p className="text-xl text-white font-semibold">Your business. Your agents. Your infrastructure.</p>
+            <p className="text-gray-400">The thumb-drive agent swarm. Your nuclear weapon.</p>
+          </div>
+          <Link 
+            href="/tools"
+            className="inline-block mt-8 text-white hover:text-gray-300 font-semibold border-b-2 border-white hover:border-gray-300 transition-all"
+          >
+            Build Your Swarm →
+          </Link>
+        </div>
+      </section>
+
           {/* The Lie They Sold You */}
-          <section className="py-16 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
+          <section className="py-16 px-4 bg-gray-900 text-gray-200 border-t-4 border-gray-700 border-b-4 border-gray-700">
             <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">The Lie They Sold You</h2>
           <div className="text-lg md:text-xl space-y-4 text-gray-300 leading-relaxed">
@@ -85,7 +103,8 @@ export default function Home() {
                 </div>
                 <div className="mt-8 p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-xl border border-green-500/30">
                   <p className="text-4xl font-bold text-green-400 mb-2">= $3,000–$7,000/month total value</p>
-                  <p className="text-xl font-semibold text-white">We turn AI from a threat into your personal money machine.</p>
+                  <p className="text-xl font-semibold text-white mb-4">We turn AI from a threat into your personal money machine.</p>
+                  <p className="text-lg text-gray-300">You aren't here to take notes. You're here to build an asset that prints revenue.</p>
                 </div>
               </div>
         </div>
@@ -94,9 +113,12 @@ export default function Home() {
           {/* What You'll Find Here */}
           <section className="py-20 px-4 bg-gray-900 border-t-4 border-gray-700 border-b-4 border-gray-700">
             <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-6">
             What You'll Find Here
           </h2>
+          <p className="text-center text-xl text-gray-300 mb-12 max-w-3xl mx-auto font-semibold">
+            Built for creators, founders, solopreneurs, and rebels tired of trading time for money.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* The Playbook */}
@@ -173,7 +195,8 @@ export default function Home() {
             Featured Essays
           </h2>
           <p className="text-center text-gray-400 mb-12">
-            Deep dives into automation, economics, and life after the 9-to-5
+            Deep dives into automation, economics, and life after the 9-to-5.<br />
+            <span className="text-white font-semibold">No pitch decks. No gatekeepers. Just truth.</span>
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -230,8 +253,11 @@ export default function Home() {
           <section className="py-20 px-4 bg-black border-t-4 border-gray-800 border-b-4 border-gray-800">
             <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">The Proof</h2>
-          <p className="text-xl text-gray-300 mb-12">
+          <p className="text-xl text-gray-300 mb-4">
             You don't need to trust hype. Trust arithmetic.
+          </p>
+          <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
+            Built for creators, founders, solopreneurs, and rebels tired of trading time for money.
           </p>
           
           <div className="space-y-8 mb-12">
@@ -247,8 +273,20 @@ export default function Home() {
           
           <EmailCapture 
             buttonText="Get My 20 Hours Back"
-            className="max-w-xl mx-auto"
+            className="max-w-xl mx-auto mb-8"
           />
+          
+          <div className="mt-8">
+            <Link 
+              href="/pricing"
+              className="inline-block text-lg font-bold text-white bg-transparent hover:bg-white hover:text-black border-4 border-white px-8 py-4 rounded-lg transition-all"
+            >
+              Enter the OS →
+            </Link>
+            <p className="text-sm text-gray-400 mt-3">
+              Claim your build slot. Autonomy starts now.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -259,8 +297,9 @@ export default function Home() {
               <div className="space-y-6 text-lg text-gray-300 leading-relaxed mb-12">
                 <p className="text-2xl font-semibold text-white">The future isn't 9-to-5.</p>
                 <p className="text-2xl font-semibold text-white">It's 24/7 leverage.</p>
+                <p className="text-xl font-bold text-white">WorkFreeWork is punk automation.</p>
                 <p>WorkFreeWork isn't about quitting — it's about evolving.</p>
-                <p>You can stay in the system, or you can automate your exit.</p>
+                <p className="text-white font-semibold">You can stay in the system, or you can automate your exit.</p>
               </div>
               
               {/* May-z the Dog */}
@@ -289,25 +328,28 @@ export default function Home() {
           {/* Membership CTA */}
           <section className="py-20 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
             <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Go Deeper?
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            Scale Engine Membership
           </h2>
-          <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-            Join The Collective: a private community of builders, makers, and post-work escape artists.
+          <p className="text-xl text-gray-300 mb-4 max-w-3xl mx-auto font-semibold">
+            Ongoing automations, new AI agents, business upgrades.
+          </p>
+          <p className="text-lg text-gray-400 mb-12 max-w-3xl mx-auto">
+            Make membership feel like an infinite upgrade path, not a Discord group with vibes.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Weekly Playbooks</h3>
-              <p className="text-gray-400 text-sm">Automation tactics you can implement today</p>
+              <h3 className="font-bold text-lg mb-2 text-white">Ongoing Automations</h3>
+              <p className="text-gray-400 text-sm">New workflows deployed monthly</p>
             </div>
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Private Community</h3>
-              <p className="text-gray-400 text-sm">Discord access with fellow freedom-seekers</p>
+              <h3 className="font-bold text-lg mb-2 text-white">New AI Agents</h3>
+              <p className="text-gray-400 text-sm">The swarm grows. So does your leverage.</p>
             </div>
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Exclusive Tools</h3>
-              <p className="text-gray-400 text-sm">Templates, scripts, and resources</p>
+              <h3 className="font-bold text-lg mb-2 text-white">Business Upgrades</h3>
+              <p className="text-gray-400 text-sm">Infrastructure that scales with you</p>
             </div>
           </div>
 
@@ -317,14 +359,14 @@ export default function Home() {
               className="text-lg"
               data-btn="glass"
             >
-              View All Membership Tiers
+              View All Tiers
             </Link>
             <Link
               href="/api/checkout?tier=collective"
               className="text-lg inline-block"
               data-btn="glass"
             >
-              Join for $15/month →
+              Enter the OS →
             </Link>
           </div>
 
@@ -340,8 +382,11 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             "One Email a Week That Makes You Question Employment."
           </h2>
-          <p className="text-xl text-gray-400 mb-8">
+          <p className="text-xl text-gray-400 mb-4">
             Practical automation ideas, essays, and tools for living free from wage dependence.
+          </p>
+          <p className="text-lg text-gray-300 mb-8 font-semibold">
+            Built for creators, founders, solopreneurs, and rebels tired of trading time for money.
           </p>
           
           <EmailCapture 
