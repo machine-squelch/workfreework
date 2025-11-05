@@ -56,11 +56,11 @@ export default function Hero() {
               </h1>
               
               <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 max-w-3xl mx-auto">
-                AI isn't stealing jobs — it's freeing people who know how to use it.
+                Build a company in hours, not fiscal quarters.
               </p>
               
               <p className="text-base md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                You don't need another hustle. You need a system that pays you for being efficient.
+                No pitch decks. No gatekeepers. No permission.
               </p>
 
               {/* Email Capture */}
@@ -70,16 +70,16 @@ export default function Hero() {
                   buttonText="Get My 20 Hours Back"
                 />
                 <p className="text-sm text-gray-400 mt-2">
-                  Five steps to reclaim 20 hours a week and build real income without clock-punching.
+                  Autonomy starts now. Claim your build slot.
                 </p>
               </div>
 
               {/* Secondary CTA */}
               <Link 
-                href="/essays"
+                href="/playbook"
                 className="inline-block text-white hover:text-gray-300 font-semibold border-b-2 border-white hover:border-gray-300 transition-all"
               >
-                Start Printing Time →
+                Enter the System →
               </Link>
             </div>
           </div>
