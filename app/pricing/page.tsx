@@ -91,13 +91,13 @@ export default function PricingPage() {
               </div>
               
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-white mb-2">The Collective</h3>
+                <h3 className="text-2xl font-bold text-white mb-2">Scale Engine Membership</h3>
                 <div className="flex items-baseline mb-4">
                   <span className="text-5xl font-bold text-white">$15</span>
                   <span className="text-gray-400 ml-2">/month</span>
                 </div>
                 <p className="text-gray-400 text-sm">
-                  Unsubscribe from work. Subscribe to freedom.
+                  Ongoing automations, new AI agents, business upgrades.
                 </p>
               </div>
 
@@ -137,7 +137,7 @@ export default function PricingPage() {
                 className="w-full text-center block"
                 data-btn="glass"
               >
-                Join The Collective
+                Join Scale Engine
               </Link>
               
               <p className="text-xs text-gray-500 text-center mt-3">
@@ -161,7 +161,7 @@ export default function PricingPage() {
               <ul className="space-y-3 mb-8 flex-grow">
                 <li className="flex items-start text-gray-300">
                   <span className="text-white mr-2">✓</span>
-                  <span>Everything in Collective</span>
+                  <span>Everything in Scale Engine</span>
                 </li>
                 <li className="flex items-start text-gray-300">
                   <span className="text-white mr-2">✓</span>
@@ -292,7 +292,7 @@ export default function PricingPage() {
                 What if I'm not satisfied?
               </h3>
               <p className="text-gray-300">
-                First month money-back guarantee. If The Collective isn't for you, we'll refund you.
+                First month money-back guarantee. If Scale Engine isn't for you, we'll refund you.
               </p>
             </div>
 
@@ -331,7 +331,7 @@ export default function PricingPage() {
                 What if I'm already working on automation?
               </h3>
               <p className="text-gray-300">
-                Perfect. The Collective is peer-driven. Share your setups, get feedback, 
+                Perfect. Scale Engine is peer-driven. Share your setups, get feedback, 
                 and help others. You'll level up faster together.
               </p>
             </div>
@@ -360,7 +360,7 @@ export default function PricingPage() {
               href="/api/checkout?tier=collective"
               data-btn="glass"
             >
-              Join The Collective - $15/mo
+              Join Scale Engine - $15/mo
             </Link>
           </div>
         </div>

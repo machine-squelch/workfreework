@@ -166,6 +166,32 @@ export default function Home() {
         </div>
       </section>
 
+          {/* Own Your AI Workforce */}
+          <section className="py-20 px-4 bg-black border-t-4 border-white border-b-4 border-white fluoro-edge">
+            <div className="max-w-5xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Own Your AI Workforce</h2>
+              <div className="space-y-4 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-10">
+                <p className="font-semibold text-white">Own your AI workforce.</p>
+                <p>Runs in the cloud — or portable and offline.</p>
+                <p className="text-white">Your business. Your agents. Your infrastructure.</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-700">
+                  <h3 className="text-lg font-bold text-white mb-2">Cloud-Native</h3>
+                  <p className="text-gray-300 text-sm">Spin up agent swarms that work while you sleep.</p>
+                </div>
+                <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-700">
+                  <h3 className="text-lg font-bold text-white mb-2">Portable & Offline</h3>
+                  <p className="text-gray-300 text-sm">Ship your stack on a drive. Zero gatekeepers.</p>
+                </div>
+                <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-700">
+                  <h3 className="text-lg font-bold text-white mb-2">Yours to Control</h3>
+                  <p className="text-gray-300 text-sm">Own the infra, the data, and the outcomes.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Featured Essays */}
           <section className="py-20 px-4 border-t-4 border-gray-800 border-b-4 border-gray-800">
             <div className="max-w-6xl mx-auto">
@@ -245,6 +271,19 @@ export default function Home() {
                 </div>
           </div>
           
+          <div className="max-w-3xl mx-auto text-center mt-8 mb-10">
+            <p className="text-2xl md:text-3xl font-semibold text-white mb-3">
+              You aren't here to take notes.
+            </p>
+            <p className="text-xl text-gray-200 mb-8">
+              You're here to build an asset that prints revenue.
+            </p>
+            <Link href="/pricing" className="inline-block" data-btn="glass">
+              Enter the OS →
+            </Link>
+            <p className="text-sm text-gray-500 mt-3">Claim your build slot. Autonomy starts now.</p>
+          </div>
+
           <EmailCapture 
             buttonText="Get My 20 Hours Back"
             className="max-w-xl mx-auto"
@@ -289,44 +328,45 @@ export default function Home() {
           {/* Membership CTA */}
           <section className="py-20 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
             <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Go Deeper?
+          <h2 className="text-4xl md:text-5xl font-bold mb-2 text-white">
+            Scale Engine Membership
           </h2>
-          <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-            Join The Collective: a private community of builders, makers, and post-work escape artists.
+          <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+            Ongoing automations, new AI agents, business upgrades.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Weekly Playbooks</h3>
-              <p className="text-gray-400 text-sm">Automation tactics you can implement today</p>
+              <h3 className="font-bold text-lg mb-2 text-white">Ongoing Automations</h3>
+              <p className="text-gray-400 text-sm">Fresh workflows shipped to your stack, continuously.</p>
             </div>
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Private Community</h3>
-              <p className="text-gray-400 text-sm">Discord access with fellow freedom-seekers</p>
+              <h3 className="font-bold text-lg mb-2 text-white">New AI Agents</h3>
+              <p className="text-gray-400 text-sm">Deploy purpose-built agents that make you money.</p>
             </div>
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Exclusive Tools</h3>
-              <p className="text-gray-400 text-sm">Templates, scripts, and resources</p>
+              <h3 className="font-bold text-lg mb-2 text-white">Business Upgrades</h3>
+              <p className="text-gray-400 text-sm">Constant improvements to operations, funnels, and infra.</p>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
             <Link
               href="/pricing"
               className="text-lg"
               data-btn="glass"
             >
-              View All Membership Tiers
+              Enter the OS →
             </Link>
             <Link
               href="/api/checkout?tier=collective"
               className="text-lg inline-block"
               data-btn="glass"
             >
-              Join for $15/month →
+              Join for $15/month
             </Link>
           </div>
+          <p className="text-sm text-gray-500 mb-8">Claim your build slot. Autonomy starts now.</p>
 
           <p className="text-sm text-gray-500">
             Or continue with the free newsletter below ↓

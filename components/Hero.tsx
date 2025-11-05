@@ -63,6 +63,13 @@ export default function Hero() {
                 You don't need another hustle. You need a system that pays you for being efficient.
               </p>
 
+              <p className="text-xl md:text-2xl text-white font-semibold max-w-3xl mx-auto">
+                Build a company in hours, not fiscal quarters.
+              </p>
+              <p className="text-base md:text-lg text-gray-200 mb-8 max-w-3xl mx-auto">
+                No pitch decks. No gatekeepers. No permission.
+              </p>
+
               {/* Email Capture */}
               <div className="max-w-xl mx-auto mb-6">
                 <EmailCapture 
@@ -81,6 +88,9 @@ export default function Hero() {
               >
                 Start Printing Time →
               </Link>
+              <p className="mt-6 text-sm md:text-base text-gray-300">
+                Built for creators, founders, solopreneurs, and rebels tired of trading time for money.
+              </p>
             </div>
           </div>
         </div>
