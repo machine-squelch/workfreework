@@ -51,17 +51,25 @@ export default function Hero() {
             </div>
             
             <div className="relative z-10 py-6 md:py-8">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white">
-                Work Free. Earn More.
-              </h1>
-              
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 max-w-3xl mx-auto">
-                AI isn't stealing jobs — it's freeing people who know how to use it.
-              </p>
-              
-              <p className="text-base md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                You don't need another hustle. You need a system that pays you for being efficient.
-              </p>
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white">
+                  Work Free. Earn More.
+                </h1>
+
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-100 mb-4 max-w-3xl mx-auto">
+                  Build a company in hours, not fiscal quarters.
+                </p>
+
+                <p className="text-base md:text-lg text-gray-300 mb-4 max-w-2xl mx-auto">
+                  No pitch decks. No gatekeepers. No permission.
+                </p>
+
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto">
+                  AI isn't stealing jobs — it's freeing people ruthless enough to weaponize it.
+                </p>
+
+                <p className="text-base md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                  Built for creators, founders, solopreneurs, and rebels tired of trading time for money.
+                </p>
 
               {/* Email Capture */}
               <div className="max-w-xl mx-auto mb-6">
