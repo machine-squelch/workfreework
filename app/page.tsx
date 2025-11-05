@@ -28,6 +28,34 @@ export default function Home() {
         </div>
       </section>
 
+            {/* Punchy CTA */}
+            <section className="py-20 px-4 bg-gray-950 border-t-4 border-gray-800 border-b-4 border-gray-800">
+              <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+              You aren't here to take notes.
+            </h2>
+            <p className="text-2xl text-gray-300 mb-6">
+              You're here to build an asset that prints revenue.
+            </p>
+            <p className="text-lg text-gray-400 mb-10 max-w-3xl mx-auto">
+              Built for feral founders, indie creators, and solopreneur rebels done trading time for money.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                href="/api/checkout?tier=collective"
+                data-btn="glass"
+                className="text-lg"
+              >
+                Enter the OS →
+              </Link>
+              <span className="text-sm text-gray-500 uppercase tracking-[0.4em]">Autonomy starts now</span>
+            </div>
+            <p className="text-sm text-gray-400 mt-6">
+              Claim your build slot before the next automation drop ships.
+            </p>
+          </div>
+        </section>
+
           {/* How We Save / Make You Money */}
           <section className="py-20 px-4 bg-gray-800 border-t-4 border-gray-600 border-b-4 border-gray-600">
             <div className="max-w-6xl mx-auto">
@@ -90,6 +118,20 @@ export default function Home() {
               </div>
         </div>
       </section>
+
+            {/* Off-Grid Autonomy Teaser */}
+            <section className="py-20 px-4 bg-black border-t-4 border-white/20 border-b-4 border-white/20">
+              <div className="max-w-4xl mx-auto">
+            <div className="glass-card p-10 md:p-14 rounded-3xl text-center border-4 border-white shadow-[0_0_40px_rgba(255,255,255,0.15)]">
+              <p className="text-4xl md:text-5xl font-bold text-white mb-6">Own your AI workforce.</p>
+              <p className="text-2xl md:text-3xl text-gray-200 mb-4">Runs in the cloud — or portable and offline.</p>
+              <p className="text-xl md:text-2xl text-gray-300 mb-8">Your business. Your agents. Your infrastructure.</p>
+              <div className="bg-gray-900/80 border border-white/30 rounded-2xl px-6 py-5 text-gray-200 text-base md:text-lg leading-relaxed">
+                Thumb-drive agent swarm. Air-gapped autonomy. Build it once, take it anywhere.
+              </div>
+            </div>
+          </div>
+        </section>
 
           {/* What You'll Find Here */}
           <section className="py-20 px-4 bg-gray-900 border-t-4 border-gray-700 border-b-4 border-gray-700">
@@ -286,53 +328,59 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Membership CTA */}
-          <section className="py-20 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
-            <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Go Deeper?
-          </h2>
-          <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-            Join The Collective: a private community of builders, makers, and post-work escape artists.
-          </p>
+            {/* Membership CTA */}
+            <section className="py-20 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
+              <div className="max-w-5xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Scale Engine Membership
+            </h2>
+            <p className="text-xl text-gray-300 mb-6 max-w-3xl mx-auto">
+              Ongoing automations. New AI agents. Relentless business upgrades.
+            </p>
+            <p className="text-base md:text-lg text-gray-400 mb-12 max-w-3xl mx-auto">
+              Not a Discord vibe. A perpetually updating operating system for founders who refuse to plateau.
+            </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Weekly Playbooks</h3>
-              <p className="text-gray-400 text-sm">Automation tactics you can implement today</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                  <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
+                <h3 className="font-bold text-lg mb-2 text-white">Automation Drops</h3>
+                <p className="text-gray-400 text-sm">Weekly revenue builds and workflow upgrades shipped to your stack.</p>
+              </div>
+                  <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
+                <h3 className="font-bold text-lg mb-2 text-white">Agent Forge</h3>
+                <p className="text-gray-400 text-sm">Deploy new AI workers, tuned to run on-cloud or off-grid hardware.</p>
+              </div>
+                  <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
+                <h3 className="font-bold text-lg mb-2 text-white">Operator Signal</h3>
+                <p className="text-gray-400 text-sm">Strategy calls, hotseat breakdowns, and a crew shipping leverage in public.</p>
+              </div>
             </div>
-                <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Private Community</h3>
-              <p className="text-gray-400 text-sm">Discord access with fellow freedom-seekers</p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <Link
+                href="/pricing"
+                className="text-lg"
+                data-btn="glass"
+              >
+                Preview the Roadmap
+              </Link>
+              <Link
+                href="/api/checkout?tier=collective"
+                className="text-lg inline-block"
+                data-btn="glass"
+              >
+                Enter the OS →
+              </Link>
             </div>
-                <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Exclusive Tools</h3>
-              <p className="text-gray-400 text-sm">Templates, scripts, and resources</p>
-            </div>
+
+            <p className="text-sm text-gray-400 mb-4">
+              Claim your build slot. Autonomy starts now.
+            </p>
+            <p className="text-sm text-gray-500">
+              Or continue with the free newsletter below ↓
+            </p>
           </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link
-              href="/pricing"
-              className="text-lg"
-              data-btn="glass"
-            >
-              View All Membership Tiers
-            </Link>
-            <Link
-              href="/api/checkout?tier=collective"
-              className="text-lg inline-block"
-              data-btn="glass"
-            >
-              Join for $15/month →
-            </Link>
-          </div>
-
-          <p className="text-sm text-gray-500">
-            Or continue with the free newsletter below ↓
-          </p>
-        </div>
-      </section>
+        </section>
 
           {/* Newsletter Signup */}
           <section className="py-20 px-4 bg-gray-900 border-t-4 border-gray-700 border-b-4 border-gray-700">
