@@ -28,6 +28,27 @@ export default function Home() {
         </div>
       </section>
 
+          {/* Off-Grid AI Autonomy - Nuclear Weapon */}
+          <section className="py-20 px-4 bg-gray-900 border-t-4 border-gray-700 border-b-4 border-gray-700">
+            <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white">Own Your AI Workforce</h2>
+          <div className="glass-card p-8 rounded-2xl border-4 border-white shadow-2xl mb-8">
+            <p className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Runs in the cloud — or portable and offline.
+            </p>
+            <p className="text-xl text-gray-200 mb-6">
+              Your business. Your agents. Your infrastructure.
+            </p>
+            <p className="text-lg text-gray-300">
+              Instant chills, instant moat.
+            </p>
+          </div>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            Built for creators, founders, solopreneurs, and rebels tired of trading time for money.
+          </p>
+        </div>
+      </section>
+
           {/* How We Save / Make You Money */}
           <section className="py-20 px-4 bg-gray-800 border-t-4 border-gray-600 border-b-4 border-gray-600">
             <div className="max-w-6xl mx-auto">
@@ -245,6 +266,19 @@ export default function Home() {
                 </div>
           </div>
           
+          <div className="mb-8">
+            <Link
+              href="/pricing"
+              className="inline-block text-lg mb-6"
+              data-btn="glass"
+            >
+              Enter the OS →
+            </Link>
+            <p className="text-sm text-gray-400">
+              Claim your build slot. Autonomy starts now.
+            </p>
+          </div>
+          
           <EmailCapture 
             buttonText="Get My 20 Hours Back"
             className="max-w-xl mx-auto"
@@ -281,33 +315,36 @@ export default function Home() {
                 className="inline-flex items-center text-lg"
                 data-btn="glass"
               >
-                Join the WorkFree Movement
+                Enter the OS →
               </Link>
+              <p className="text-sm text-gray-400 mt-4">
+                Claim your build slot. Autonomy starts now.
+              </p>
             </div>
           </section>
 
-          {/* Membership CTA */}
+          {/* Scale Engine Membership CTA */}
           <section className="py-20 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
             <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Ready to Go Deeper?
+            Scale Engine Membership
           </h2>
           <p className="text-xl text-gray-400 mb-12 max-w-3xl mx-auto">
-            Join The Collective: a private community of builders, makers, and post-work escape artists.
+            Ongoing automations, new AI agents, business upgrades. An infinite upgrade path, not a Discord group with vibes.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Weekly Playbooks</h3>
-              <p className="text-gray-400 text-sm">Automation tactics you can implement today</p>
+              <h3 className="font-bold text-lg mb-2 text-white">Ongoing Automations</h3>
+              <p className="text-gray-400 text-sm">New workflows delivered monthly</p>
             </div>
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Private Community</h3>
-              <p className="text-gray-400 text-sm">Discord access with fellow freedom-seekers</p>
+              <h3 className="font-bold text-lg mb-2 text-white">New AI Agents</h3>
+              <p className="text-gray-400 text-sm">Access to the latest agent templates</p>
             </div>
                 <div className="bg-gray-900 p-6 rounded-lg border-2 border-gray-600 shadow-xl">
-              <h3 className="font-bold text-lg mb-2 text-white">Exclusive Tools</h3>
-              <p className="text-gray-400 text-sm">Templates, scripts, and resources</p>
+              <h3 className="font-bold text-lg mb-2 text-white">Business Upgrades</h3>
+              <p className="text-gray-400 text-sm">Scale your operations, not your hours</p>
             </div>
           </div>
 
@@ -317,14 +354,14 @@ export default function Home() {
               className="text-lg"
               data-btn="glass"
             >
-              View All Membership Tiers
+              View All Tiers
             </Link>
             <Link
               href="/api/checkout?tier=collective"
               className="text-lg inline-block"
               data-btn="glass"
             >
-              Join for $15/month →
+              Enter the OS →
             </Link>
           </div>
 
