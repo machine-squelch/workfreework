@@ -55,12 +55,16 @@ export default function Hero() {
                 Work Free. Earn More.
               </h1>
               
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 max-w-3xl mx-auto">
-                AI isn't stealing jobs — it's freeing people who know how to use it.
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto font-semibold">
+                Build a company in hours, not fiscal quarters.
               </p>
               
-              <p className="text-base md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                You don't need another hustle. You need a system that pays you for being efficient.
+              <p className="text-base md:text-lg text-gray-300 mb-4 max-w-2xl mx-auto">
+                No pitch decks. No gatekeepers. No permission.
+              </p>
+
+              <p className="text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto italic">
+                Built for creators, founders, solopreneurs, and rebels tired of trading time for money.
               </p>
 
               {/* Email Capture */}
