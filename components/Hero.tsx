@@ -1,66 +1,80 @@
 import EmailCapture from './EmailCapture'
 import Link from 'next/link'
 import Image from 'next/image'
+import LetterGlitch from './LetterGlitch'
+import Galaxy from './Galaxy';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[72vh] overflow-hidden bg-gray-900 py-10 md:py-12">
-      {/* Skull background image - lowest layer */}
-      <div 
-        className="absolute inset-0 opacity-10 skull-anim"
-        style={{
-          backgroundImage: 'url(/skull-complete.png)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      ></div>
-      
-      {/* Darker animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 animate-gradient opacity-90"></div>
-      
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-        backgroundSize: '40px 40px'
-      }}></div>
+    <section className="relative min-h-[72vh] overflow-hidden bg-black py-10 md:py-12">
+      <div className="absolute inset-0">
+        <Galaxy 
+          mouseRepulsion={true}
+          mouseInteraction={true}
+          density={1.5} /* Retain original density for a denser, brighter feel */
+          glowIntensity={0.8} /* Further increased glow intensity for brighter neon */
+          saturation={1.0} /* Max saturation for vibrant neon colors */
+          hueShift={220} /* Adjusted hue shift to favor blues and white */
+          twinkleIntensity={0.6} /* Keep increased twinkle for dynamic stars */
+          rotationSpeed={0.1} /* Retain original rotation speed */
+        />
+        <div className="absolute inset-0" style={{ zIndex: -30 }}>
+          <LetterGlitch glitchSpeed={60} centerVignette outerVignette smooth />
+        </div>
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            zIndex: -20,
+            background:
+              'linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(15,23,42,0.35) 45%, rgba(2,6,23,0.75) 100%)',
+          }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none animate-[pulse_8s_ease-in-out_infinite]"
+          style={{
+            zIndex: -10,
+            backgroundImage:
+              'radial-gradient(circle at 20% 30%, rgba(59,130,246,0.45) 0%, transparent 55%), radial-gradient(circle at 80% 70%, rgba(14,165,233,0.35) 0%, transparent 60%)',
+          }}
+        />
+      </div>
 
       {/* Content */}
       <div className="relative z-10 h-full grid place-items-center px-4">
         <div className="max-w-4xl w-full mx-auto text-center flex flex-col items-center gap-16 md:gap-20">
           
-          {/* Glass Card Behind Logo - 25px padding, matches logo dimensions */}
           <div className="relative flex justify-center">
-            {/* Glass card wraps logo with 25px padding on all sides */}
-            <div className="glass-card rounded-3xl p-[25px]">
+            <div className="p-3 md:p-4 rounded-3xl border-4 border-white glass-card no-shine fluoro-edge--hotwhite neon-backglow--white">
               <Image 
-                src="/wfw-logo-rwb.png" 
+                src="/wfw-logo.png" 
                 alt="WorkFreeWork Logo" 
-                width={600} 
-                height={600}
+                width={9964} 
+                height={2888}
                 priority
-                className="w-[300px] md:w-[600px] h-auto"
+                className="max-w-full h-auto"
               />
             </div>
           </div>
           
-          {/* Glass Card Behind Text */}
           <div className="relative">
-            <div className="absolute inset-0 -mx-8 -my-6">
-              <div className="glass-card w-full h-full rounded-3xl"></div>
+            <div className="absolute inset-0 -mx-6 -my-4 rounded-3xl">
+              <div className="glass-card no-shine w-full h-full rounded-3xl border-4 border-white fluoro-edge--hotwhite neon-backglow--white"></div>
             </div>
-            
             <div className="relative z-10 py-6 md:py-8">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white neon-text-strong">
                 Work Free. Earn More.
               </h1>
               
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-6 max-w-3xl mx-auto">
-                AI isn't stealing jobs — it's freeing people who know how to use it.
+              <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto font-semibold">
+                Build a company in hours, not fiscal quarters.
               </p>
               
-              <p className="text-base md:text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-                You don't need another hustle. You need a system that pays you for being efficient.
+              <p className="text-base md:text-lg text-gray-300 mb-4 max-w-2xl mx-auto">
+                No pitch decks. No gatekeepers. No permission.
+              </p>
+
+              <p className="text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto italic">
+                Built for creators, founders, solopreneurs, and rebels tired of trading time for money.
               </p>
 
               {/* Email Capture */}
@@ -77,7 +91,7 @@ export default function Hero() {
               {/* Secondary CTA */}
               <Link 
                 href="/essays"
-                className="inline-block text-white hover:text-gray-300 font-semibold border-b-2 border-white hover:border-gray-300 transition-all"
+                className="inline-block text-white hover:text-gray-300 font-semibold border-b-2 border-white hover:border-gray-300 transition-all neon-text"
               >
                 Start Printing Time →
               </Link>

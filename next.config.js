@@ -1,3 +1,28 @@
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === 'development',
+  buildExcludes: [/middleware-manifest\.json$/],
+  publicExcludes: ['!robots.txt', '!sitemap.xml'],
+  runtimeCaching: [
+    {
+      urlPattern: /^https?.*/,
+      handler: 'NetworkFirst',
+      options: {
+        cacheName: 'offlineCache',
+        expiration: {
+          maxEntries: 200,
+        },
+      },
+    },
+  ],
+  // Suppress service worker errors in development
+  fallbacks: {
+    document: '/offline',
+  },
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -35,7 +60,7 @@ const securityHeaders = [
   }
 ]
 
-module.exports = {
+module.exports = withPWA({
   ...nextConfig,
   async headers() {
     return [
@@ -45,5 +70,4 @@ module.exports = {
       },
     ]
   },
-}
-
+})

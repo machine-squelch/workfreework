@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import EmailCapture from '@/components/EmailCapture'
+import SectionSeparator from '@/components/SectionSeparator';
 
 export const metadata: Metadata = {
   title: 'Tools & Resources - WorkFreeWork',
@@ -50,6 +51,8 @@ export default function ToolsPage() {
             </button>
           </div>
         </div>
+
+        <SectionSeparator variant="hotwhite" pulse={true} className="my-16" />
 
         {/* Tools Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -192,6 +195,8 @@ export default function ToolsPage() {
           </div>
         </div>
 
+        <SectionSeparator variant="green" pulse={true} className="my-16" />
+
         {/* Templates Section */}
         <section className="mb-16">
           <h2 className="text-4xl font-bold mb-8">Templates & Workflows</h2>
@@ -256,4 +261,3 @@ export default function ToolsPage() {
     </div>
   )
 }
-

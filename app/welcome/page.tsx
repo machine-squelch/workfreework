@@ -9,9 +9,15 @@ function WelcomeContent() {
   const tier = searchParams.get('tier')
 
   const tierNames: { [key: string]: string } = {
-    collective: 'The Collective',
-    accelerator: 'WorkFree Accelerator',
-    patron: 'Founding Patron',
+    signal: 'Signal',
+    builder: 'Builder Lab',
+    operator: 'Operator HQ',
+    accelerator_cohort: 'Accelerator Cohort',
+    accelerator_dfy: 'Accelerator Done-For-You',
+    // Backwards compatibility
+    collective: 'Builder Lab',
+    accelerator: 'Accelerator Cohort',
+    patron: 'Operator HQ',
   }
 
   const tierName = tier ? tierNames[tier] || 'WorkFreeWork' : 'WorkFreeWork'
@@ -34,14 +40,14 @@ function WelcomeContent() {
               <p>✓ <strong>Check your email</strong> - You'll receive login credentials within 5 minutes</p>
               <p>✓ <strong>Join Discord</strong> - Link in welcome email</p>
               <p>✓ <strong>Download resources</strong> - Access your member library</p>
-              {tier === 'collective' && (
+              {(tier === 'builder' || tier === 'collective') && (
                 <p>✓ <strong>Attend co-working</strong> - Next session details in Discord</p>
               )}
-              {tier === 'accelerator' && (
-                <p>✓ <strong>Schedule kickoff call</strong> - We'll reach out within 24 hours</p>
+              {(tier === 'operator' || tier === 'patron') && (
+                <p>✓ <strong>Lock in your sprint</strong> - Weekly live sessions kick off Monday</p>
               )}
-              {tier === 'patron' && (
-                <p>✓ <strong>Book your 1-on-1</strong> - Calendar link in welcome email</p>
+              {(tier?.startsWith('accelerator') || tier === 'accelerator') && (
+                <p>✓ <strong>Schedule kickoff call</strong> - We'll map your 6-week pod within 24 hours</p>
               )}
             </div>
           </div>
@@ -83,4 +89,3 @@ export default function WelcomePage() {
     </Suspense>
   )
 }
-

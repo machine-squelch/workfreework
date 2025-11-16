@@ -23,7 +23,7 @@ export default function NewsletterPage() {
       {/* Hero */}
       <section className="py-20 px-4 bg-gradient-to-b from-black to-gray-900 text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white neon-text-strong">
             "One Email a Week That Makes You Question Employment."
           </h1>
           <p className="text-2xl text-gray-300 mb-10">
@@ -45,13 +45,13 @@ export default function NewsletterPage() {
       {/* What You Get */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
             What You'll Get Every Week
           </h2>
           
           <div className="space-y-8">
-            <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 shadow-sm">
-              <h3 className="text-2xl font-bold mb-3 text-black">
+            <div className="bg-gray-900 p-8 rounded-lg border-4 border-sky-400 neon-border--blue neon-backglow--blue shadow-sm">
+              <h3 className="text-2xl font-bold mb-3 text-white">
                 🎯 One Practical Automation Tip
               </h3>
               <p className="text-gray-300">
@@ -60,8 +60,8 @@ export default function NewsletterPage() {
               </p>
             </div>
 
-            <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 shadow-sm">
-              <h3 className="text-2xl font-bold mb-3 text-black">
+            <div className="bg-gray-900 p-8 rounded-lg border-4 border-sky-400 neon-border--blue neon-backglow--blue shadow-sm">
+              <h3 className="text-2xl font-bold mb-3 text-white">
                 ✍️ Weekly Essay or Analysis
               </h3>
               <p className="text-gray-300">
@@ -70,8 +70,8 @@ export default function NewsletterPage() {
               </p>
             </div>
 
-            <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 shadow-sm">
-              <h3 className="text-2xl font-bold mb-3 text-black">
+            <div className="bg-gray-900 p-8 rounded-lg border-4 border-sky-400 neon-border--blue neon-backglow--blue shadow-sm">
+              <h3 className="text-2xl font-bold mb-3 text-white">
                 📊 Real Case Studies
               </h3>
               <p className="text-gray-300">
@@ -80,8 +80,8 @@ export default function NewsletterPage() {
               </p>
             </div>
 
-            <div className="bg-gray-900 p-8 rounded-lg border border-gray-700 shadow-sm">
-              <h3 className="text-2xl font-bold mb-3 text-black">
+            <div className="bg-gray-900 p-8 rounded-lg border-4 border-sky-400 neon-border--blue neon-backglow--blue shadow-sm">
+              <h3 className="text-2xl font-bold mb-3 text-white">
                 🛠️ Curated Tools & Resources
               </h3>
               <p className="text-gray-300">
@@ -96,7 +96,7 @@ export default function NewsletterPage() {
       {/* Sample Issue */}
       <section className="py-20 px-4 bg-gray-900">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
             Sample Issue: What to Expect
           </h2>
           
@@ -134,12 +134,12 @@ export default function NewsletterPage() {
       {/* Testimonials */}
       <section className="py-20 px-4 bg-gray-800">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-12 text-white">
             What Subscribers Say
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
+            <div className="bg-gray-900 p-6 rounded-lg border-4 border-sky-400 neon-border--blue neon-backglow--blue">
               <p className="text-gray-300 mb-4 italic">
                 "Finally, automation advice that doesn't feel like a LinkedIn post. 
                 I've saved 8 hours a week using tactics from this newsletter."
@@ -147,7 +147,7 @@ export default function NewsletterPage() {
               <p className="font-semibold">— Sarah M., Product Manager</p>
             </div>
 
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
+            <div className="bg-gray-900 p-6 rounded-lg border-4 border-sky-400 neon-border--blue neon-backglow--blue">
               <p className="text-gray-300 mb-4 italic">
                 "Best email I get all week. Sharp, funny, and actually useful. 
                 The tool recommendations alone are worth it."
@@ -155,7 +155,7 @@ export default function NewsletterPage() {
               <p className="font-semibold">— David K., Freelance Developer</p>
             </div>
 
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
+            <div className="bg-gray-900 p-6 rounded-lg border-4 border-sky-400 neon-border--blue neon-backglow--blue">
               <p className="text-gray-300 mb-4 italic">
                 "I was skeptical about 'automation content' but this is different. 
                 Real case studies, real numbers, real tools."
@@ -163,7 +163,7 @@ export default function NewsletterPage() {
               <p className="font-semibold">— Jamie L., Marketing Consultant</p>
             </div>
 
-            <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
+            <div className="bg-gray-900 p-6 rounded-lg border-4 border-sky-400 neon-border--blue neon-backglow--blue">
               <p className="text-gray-300 mb-4 italic">
                 "If you're tired of hustle culture and want actual freedom, 
                 this newsletter is your roadmap."
@@ -184,7 +184,7 @@ export default function NewsletterPage() {
             Join 1,000+ people getting weekly tactics to reclaim their time.
           </p>
           
-          <div className="bg-gray-900 p-8 rounded-lg border border-gray-700">
+          <div className="bg-gray-900 p-8 rounded-lg border-4 border-sky-400 neon-border--blue neon-backglow--blue">
             <EmailCapture 
               placeholder="Your email"
               buttonText="Subscribe Free"
@@ -198,4 +198,3 @@ export default function NewsletterPage() {
     </div>
   )
 }
-

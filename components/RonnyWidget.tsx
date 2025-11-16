@@ -1,138 +1,294 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-type Msg = { role: "user" | "assistant"; content: any };
+type Msg = { role: "user" | "assistant"; content: string };
+
+type AccessState = "loading" | "limited" | "full";
+
+const MAX_INPUT_CHARS = 500;
+const COOLDOWN_MS = 2500;
+const RONNY_HISTORY = 8;
+
+function extractText(payload: any): string {
+  if (Array.isArray(payload?.content)) {
+    return payload.content
+      .map((block: any) => (typeof block?.text === "string" ? block.text : ""))
+      .join("\n")
+      .trim();
+  }
+
+  if (typeof payload?.content === "string") {
+    return payload.content.trim();
+  }
+
+  if (typeof payload?.output === "string") {
+    return payload.output.trim();
+  }
+
+  return "I hit an unexpected response. Please try again in a moment.";
+}
 
 export default function RonnyWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [cooldown, setCooldown] = useState(false);
+  const [csrfToken, setCsrfToken] = useState<string | null>(null);
+  const [access, setAccess] = useState<AccessState>("loading");
+  const [unlockCode, setUnlockCode] = useState("");
+  const [unlocking, setUnlocking] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (open) {
-      setTimeout(() => listRef.current?.scrollTo({ top: listRef.current.scrollHeight }), 50);
+  const fetchCsrfToken = useCallback(async () => {
+    try {
+      const res = await fetch("/api/ronny/csrf", {
+        method: "GET",
+        credentials: "same-origin",
+        cache: "no-store",
+      });
+      const data = await res.json().catch(() => ({}));
+      const token = data?.token || null;
+      setCsrfToken(token);
+      return token;
+    } catch {
+      setCsrfToken(null);
+      return null;
     }
-  }, [open]);
+  }, []);
+
+  const fetchAccessStatus = useCallback(async () => {
+    try {
+      const res = await fetch("/api/ronny/status", { cache: "no-store" });
+      const data = await res.json().catch(() => ({}));
+      setAccess(data?.status === "full" ? "full" : "limited");
+    } catch {
+      setAccess("limited");
+    }
+  }, []);
+
+  useEffect(() => {
+    fetchCsrfToken();
+    fetchAccessStatus();
+  }, [fetchCsrfToken, fetchAccessStatus]);
+
+  useEffect(() => {
+    if (!open || !listRef.current) return;
+    listRef.current.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
+  }, [messages, loading, open]);
+
+  useEffect(() => {
+    if (!cooldown) return;
+    const id = setTimeout(() => setCooldown(false), COOLDOWN_MS);
+    return () => clearTimeout(id);
+  }, [cooldown]);
+
+  async function ensureCsrfToken() {
+    if (csrfToken) return csrfToken;
+    return fetchCsrfToken();
+  }
 
   async function send() {
-    const text = input.trim();
-    if (!text || loading) return;
+    const trimmed = input.trim().slice(0, MAX_INPUT_CHARS);
+    if (!trimmed || loading || cooldown) return;
+
+    const token = await ensureCsrfToken();
+    if (!token) {
+      setError("Unable to verify session. Refresh and try again.");
+      return;
+    }
+
+    const nextHistory = [...messages, { role: "user" as const, content: trimmed }].slice(-RONNY_HISTORY);
+    setMessages(nextHistory);
     setInput("");
-    const userMsg: Msg = { role: "user", content: text };
-    const newHistory: Msg[] = [...messages, userMsg];
-    setMessages(newHistory);
     setLoading(true);
+    setError(null);
+    setCooldown(true);
+
     try {
-      const res = await fetch("/api/agent", {
+      const res = await fetch("/api/ronny", {
         method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          use_ronny_defaults: true,
-          messages: newHistory,
-          max_tokens: 1024,
-          temperature: 0.3,
-        }),
+        headers: {
+          "content-type": "application/json",
+          "X-CSRF-Token": token,
+        },
+        body: JSON.stringify({ messages: nextHistory }),
+        cache: "no-store",
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data?.error || "Agent error");
-      const assistantRaw = data?.message;
-      const assistantContent =
-        typeof assistantRaw?.content === "string"
-          ? assistantRaw.content
-          : JSON.stringify(assistantRaw?.content ?? "(no response)");
-      const assistant: Msg = { role: "assistant", content: assistantContent };
-      setMessages((prev) => [...prev, assistant]);
-      listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
-    } catch (e: any) {
-      setMessages((prev) => [
-        ...prev,
-        { role: "assistant", content: `Uh oh—${e?.message || e}. Try again.` },
-      ]);
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data?.error || "Ronny is offline. Please try again later.");
+        return;
+      }
+
+      if (data?.limited) {
+        setAccess("limited");
+      }
+
+      const reply = extractText(data);
+      setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
+    } catch (err: any) {
+      setError(err?.message || "Network error. Try again soon.");
     } finally {
       setLoading(false);
     }
   }
 
-  function onKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
-    if ((e.key === "Enter" || e.keyCode === 13) && !e.shiftKey) {
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       send();
     }
   }
 
-  return (
-    <>
-      {/* Floating button */}
-      <button
-        aria-label="Open Ronny"
-        onClick={() => setOpen((v) => !v)}
-        className="fixed bottom-6 right-6 z-40 shadow-lg rounded-full bg-white border hover:scale-105 transition-transform w-16 h-16 md:w-20 md:h-20"
-      >
-        <img src="/ronny-robot.png" alt="Ronny" className="rounded-full w-full h-full object-cover" />
-      </button>
+  async function unlock() {
+    const code = unlockCode.trim();
+    if (!code || unlocking) return;
 
-      {/* Panel */}
-      {open && (
-        <div className="fixed bottom-28 right-4 md:right-6 z-40 w-[360px] md:w-[480px] max-w-[95vw] shadow-2xl border rounded-2xl bg-white overflow-hidden">
-          <div className="flex items-center justify-between p-4 border-b bg-gray-50">
-            <div className="flex items-center gap-2">
-              <img src="/ronny-robot.png" alt="Ronny" width={32} height={32} className="rounded" />
-              <div className="text-sm md:text-base font-medium">Ronny the Robot</div>
+    const token = await ensureCsrfToken();
+    if (!token) {
+      setError("Unable to verify session. Refresh and try again.");
+      return;
+    }
+
+    setUnlocking(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/ronny/unlock", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          "X-CSRF-Token": token,
+        },
+        body: JSON.stringify({ code }),
+        cache: "no-store",
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(data?.error || "Unable to unlock. Check your code.");
+        return;
+      }
+      setAccess("full");
+      setUnlockCode("");
+      setMessages([]);
+    } catch (err: any) {
+      setError(err?.message || "Network error while unlocking.");
+    } finally {
+      setUnlocking(false);
+    }
+  }
+
+  const disabled = loading || cooldown;
+
+  return (
+    <div style={{ position: "fixed", bottom: 24, right: 24, zIndex: 60 }} aria-live="polite">
+      {open ? (
+        <div
+          className="w-80 sm:w-96 rounded-2xl shadow-2xl border-2 border-white neon-border neon-backglow--white bg-gray-900 text-white"
+          role="dialog"
+          aria-label="Ronny the Robot chat"
+        >
+          <div className="flex items-center justify-between px-4 py-3 border-b border-gray-700">
+            <div>
+              <p className="font-semibold">Ronny the Robot</p>
+              <p className="text-xs text-gray-400">
+                {access === "full" ? "Full Power" : access === "loading" ? "Checking access…" : "Ronny Lite"}
+              </p>
             </div>
-            <button onClick={() => setOpen(false)} className="text-gray-500 hover:text-gray-800 text-sm">Close</button>
-          </div>
-          <div ref={listRef} className="p-4 h-[420px] md:h-[560px] overflow-y-auto bg-white">
-            {messages.length === 0 ? (
-              <div className="text-gray-500 text-sm">Ask me anything—alright, alright, alright.</div>
-            ) : (
-              <div className="space-y-4">
-                {messages.map((m, i) => {
-                  const isUser = m.role === "user";
-                  return (
-                    <div key={i} className={isUser ? "flex justify-end" : "flex justify-start"}>
-                      <div
-                        className={
-                          (isUser
-                            ? "bg-blue-600 text-white"
-                            : "bg-gray-100 text-gray-900") +
-                          " rounded-2xl px-4 py-3 shadow-md max-w-[80%] md:max-w-[75%] whitespace-pre-wrap leading-relaxed"
-                        }
-                      >
-                        {typeof m.content === "string" ? m.content : JSON.stringify(m.content)}
-                      </div>
-                    </div>
-                  );
-                })}
-                {loading && (
-                  <div className="flex justify-start">
-                    <div className="rounded-2xl px-4 py-3 bg-gray-100 text-gray-500 shadow-md">
-                      Ronny is thinking…
-                    </div>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-          <div className="p-4 flex gap-2 border-t bg-gray-50">
-            <input
-              className="flex-1 border rounded-xl px-3 py-3 text-[15px]"
-              placeholder="Type a message"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={onKeyDown}
-              disabled={loading}
-            />
-            <button onClick={send} disabled={loading} className="px-4 py-3 rounded-xl bg-black text-white disabled:opacity-50">
-              Send
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="text-sm text-gray-400 hover:text-white"
+            >
+              Close
             </button>
           </div>
+          <div ref={listRef} className="px-4 py-3 h-72 overflow-y-auto space-y-3 bg-gray-800">
+            {messages.length === 0 && !loading && (
+              <p className="text-sm text-gray-400">
+                Ask about automation systems, pricing tiers, or where to start.
+              </p>
+            )}
+            {messages.map((msg, idx) => (
+              <div key={idx} className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                <div
+                  className={`rounded-2xl px-3 py-2 text-sm max-w-[80%] whitespace-pre-wrap break-words ${
+                    msg.role === "user" ? "bg-sky-600" : "bg-gray-700"
+                  }`}
+                >
+                  {msg.content}
+                </div>
+              </div>
+            ))}
+            {loading && <p className="text-xs text-gray-400">Ronny is thinking…</p>}
+            {error && (
+              <p className="text-xs text-red-400" role="alert">
+                {error}
+              </p>
+            )}
+          </div>
+          <div className="px-4 py-3 border-t border-gray-700 space-y-2">
+            <input
+              type="text"
+              maxLength={MAX_INPUT_CHARS}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Ask Ronny anything"
+              className="w-full rounded-xl border border-gray-600 bg-gray-900 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-white"
+              disabled={disabled}
+            />
+            <button type="button" onClick={send} disabled={disabled} className="w-full btn-glass disabled:opacity-50">
+              {cooldown ? "Cooling down" : loading ? "Sending…" : "Send"}
+            </button>
+            {access === "limited" && (
+              <div className="rounded-xl border border-amber-500 bg-amber-500/10 p-3 space-y-2">
+                <p className="text-xs text-amber-200">
+                  You're on Ronny Lite. Members get deeper playbooks and tactical breakdowns.
+                </p>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    value={unlockCode}
+                    onChange={(e) => setUnlockCode(e.target.value)}
+                    placeholder="Enter member code"
+                    className="flex-1 rounded-lg border border-amber-400 bg-transparent px-2 py-1 text-xs focus:outline-none"
+                    disabled={unlocking}
+                  />
+                  <button
+                    type="button"
+                    onClick={unlock}
+                    disabled={unlocking || !unlockCode.trim()}
+                    className="text-xs font-semibold px-3 py-1 rounded-lg bg-amber-500 text-black disabled:opacity-60"
+                  >
+                    {unlocking ? "Unlocking…" : "Unlock"}
+                  </button>
+                </div>
+                <p className="text-[10px] text-amber-200">
+                  Members: find your code in the welcome email or dashboard.
+                </p>
+              </div>
+            )}
+            <p className="text-[10px] text-gray-500">
+              Protected with CSRF, rate limiting, and subscription gating. Please avoid sharing sensitive data.
+            </p>
+          </div>
         </div>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="rounded-full border-4 border-white shadow-xl w-18 h-18 flex items-center justify-center bg-gray-900 hover:scale-105 transition"
+          aria-label="Open Ronny chatbot"
+        >
+          <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white/80">
+            <img src="/ronny-robot.png" alt="Ronny" className="w-full h-full object-cover object-top" />
+          </div>
+        </button>
       )}
-    </>
+    </div>
   );
 }
-
-

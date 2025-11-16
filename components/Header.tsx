@@ -1,33 +1,30 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState } from 'react'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-gray-900 border-b border-gray-700">
+    <header className="bg-gray-900/95 border-b border-gray-700 sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-gray-900/80">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo - Glitch Text */}
           <Link href="/" className="glitch-text-link">
-            <span className="glitch-text text-2xl md:text-3xl font-bold tracking-tight" data-text="W0RKFREEW0RK">
+            <span className="glitch-text neon-text-strong text-2xl md:text-3xl font-bold tracking-tight" data-text="W0RKFREEW0RK">
               W0RKFREEW0RK
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <Link href="/about" className="text-gray-300 hover:text-white transition-colors">
               About
             </Link>
             <Link href="/essays" className="text-gray-300 hover:text-white transition-colors">
               Essays
-            </Link>
-            <Link href="/playbook" className="text-gray-300 hover:text-white transition-colors">
-              Playbook
             </Link>
             <Link href="/tools" className="text-gray-300 hover:text-white transition-colors">
               Tools
@@ -47,6 +44,18 @@ export default function Header() {
             >
               Get Playbook
             </Link>
+            <div className="flex items-center space-x-3">
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <button className="px-4 py-2 rounded-full border border-white/30 text-sm hover:bg-white/10 transition-colors">
+                    Sign In
+                  </button>
+                </SignInButton>
+              </SignedOut>
+              <SignedIn>
+                <UserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: 'w-9 h-9' } }} />
+              </SignedIn>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -74,9 +83,6 @@ export default function Header() {
             <Link href="/essays" className="block py-2 text-gray-300 hover:text-white">
               Essays
             </Link>
-            <Link href="/playbook" className="block py-2 text-gray-300 hover:text-white">
-              Playbook
-            </Link>
             <Link href="/tools" className="block py-2 text-gray-300 hover:text-white">
               Tools
             </Link>
@@ -95,10 +101,21 @@ export default function Header() {
             >
               Get Playbook
             </Link>
+            <div className="flex items-center justify-between gap-3 pt-4">
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <button className="flex-1 px-4 py-2 rounded-full border border-white/30 text-sm text-white">
+                    Sign In
+                  </button>
+                </SignInButton>
+              </SignedOut>
+              <SignedIn>
+                <UserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: 'w-8 h-8' } }} />
+              </SignedIn>
+            </div>
           </div>
         )}
       </nav>
     </header>
   )
 }
-

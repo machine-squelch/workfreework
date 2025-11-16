@@ -2,7 +2,13 @@
 	"folders": [
 		{
 			"path": "."
+		},
+		{
+			"name": "money: staging",
+			"path": "../money.worktrees/staging"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"cursor.composer.shouldAutoAcceptDiffs": false
+	}
 }

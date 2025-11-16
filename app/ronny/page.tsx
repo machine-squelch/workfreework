@@ -4,14 +4,6 @@ import { useState, useRef } from "react";
 
 type Msg = { role: "user" | "assistant"; content: any };
 
-const RONNY_SYSTEM = `You are Ronny the Robot, an ultra-smart assistant with the laid-back charm of Matthew McConaughey.
-Guidelines:
-- Be warm, concise, and a little playful; think "alright, alright, alright" energy.
-- Give clear, actionable answers. Use bullets and short steps when helpful.
-- When you need more info, ask one specific follow-up question.
-- If you reference site content, prefer up-to-date info using tools.
-- Stay helpful and positive; avoid overlong monologues.`;
-
 export default function RonnyPage() {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
@@ -27,24 +19,28 @@ export default function RonnyPage() {
     setMessages(newHistory);
     setLoading(true);
     try {
-      const res = await fetch("/api/agent", {
+      const res = await fetch("/api/ronny", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          system: RONNY_SYSTEM,
           messages: newHistory,
-          // Tools registered by /api/agent by default: fetch_url, search_repo
-          max_tokens: 1024,
-          temperature: 0.3,
         }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data?.error || "Agent error");
-      const assistantRaw = data?.message;
-      const assistantContent =
-        typeof assistantRaw?.content === "string"
-          ? assistantRaw.content
-          : JSON.stringify(assistantRaw?.content ?? "(no response)");
+      let assistantContent = "";
+      if (Array.isArray(data?.content)) {
+        assistantContent = data.content
+          .map((block: any) => (typeof block?.text === "string" ? block.text : ""))
+          .join("\n")
+          .trim();
+      } else if (typeof data?.content === "string") {
+        assistantContent = data.content;
+      } else if (typeof data?.output === "string") {
+        assistantContent = data.output;
+      } else {
+        assistantContent = JSON.stringify(data);
+      }
       const assistant: Msg = { role: "assistant", content: assistantContent };
       setMessages((prev) => [...prev, assistant]);
       listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: "smooth" });
@@ -125,5 +121,3 @@ export default function RonnyPage() {
     </div>
   );
 }
-
-

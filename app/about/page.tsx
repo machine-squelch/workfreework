@@ -22,7 +22,7 @@ export default function AboutPage() {
     <div className="bg-gray-800 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 py-16">
         {/* Header */}
-        <h1 className="text-5xl md:text-6xl font-bold mb-6">
+        <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white neon-text-strong">
           About WorkFreeWork
         </h1>
         <p className="text-2xl text-gray-300 mb-12">
@@ -30,7 +30,7 @@ export default function AboutPage() {
         </p>
 
         {/* Mission Section */}
-        <section className="bg-gray-900 p-8 rounded-lg border border-gray-700 mb-8">
+        <section className="bg-gray-900 p-8 rounded-lg border-4 border-purple-400 mb-8 neon-border--purple neon-backglow--purple">
           <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
           <div className="prose prose-lg text-gray-300 space-y-4">
             <p>
@@ -50,7 +50,7 @@ export default function AboutPage() {
         </section>
 
         {/* Who This Is For */}
-        <section className="bg-gray-900 p-8 rounded-lg border border-gray-700 mb-8">
+        <section className="bg-gray-900 p-8 rounded-lg border-4 border-purple-400 mb-8 neon-border--purple neon-backglow--purple">
           <h2 className="text-3xl font-bold mb-4">Who This Is For</h2>
           <div className="space-y-4 text-gray-300">
             <div className="flex items-start">
@@ -88,7 +88,7 @@ export default function AboutPage() {
         </section>
 
         {/* Our Approach */}
-        <section className="bg-gray-900 p-8 rounded-lg border border-gray-700 mb-8">
+        <section className="bg-gray-900 p-8 rounded-lg border-4 border-purple-400 mb-8 neon-border--purple neon-backglow--purple">
           <h2 className="text-3xl font-bold mb-4">Our Approach</h2>
           <div className="space-y-6 text-gray-300">
             <div>
@@ -116,7 +116,7 @@ export default function AboutPage() {
         </section>
 
         {/* About the Founder */}
-        <section className="bg-black text-white p-8 rounded-lg mb-12">
+        <section className="bg-black text-white p-8 rounded-lg mb-12 border-4 border-purple-400 neon-border--purple neon-backglow--purple">
           <h2 className="text-3xl font-bold mb-4">Built by Thinkazoo</h2>
           <p className="text-gray-300 text-lg leading-relaxed">
             WorkFreeWork is created by <strong className="text-black">Thinkazoo</strong>, 
@@ -127,11 +127,11 @@ export default function AboutPage() {
         </section>
 
         {/* CTA */}
-        <section className="bg-black p-8 rounded-lg text-center">
-          <h2 className="text-3xl font-bold mb-4 text-black">
+        <section className="bg-black p-8 rounded-lg text-center border-4 border-purple-400 neon-border--purple neon-backglow--purple">
+          <h2 className="text-3xl font-bold mb-4 text-white neon-text">
             Ready to Escape the Hamster Wheel?
           </h2>
-          <p className="text-lg text-black mb-6">
+          <p className="text-lg text-gray-300 mb-6">
             Get the free 5-step playbook and start reclaiming your time.
           </p>
           <EmailCapture 

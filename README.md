@@ -82,9 +82,23 @@ The site uses email capture forms throughout. To connect them to ConvertKit:
   className="flex flex-col sm:flex-row gap-3"
 >
   <input type="email" name="email_address" required />
-  <button type="submit">Subscribe</button>
+ <button type="submit">Subscribe</button>
 </form>
 ```
+
+## 🤖 Ronny (Secure Sitewide Widget)
+
+- Ronny now supports a sitewide widget with subscription gating. Toggle it with `NEXT_PUBLIC_ENABLE_RONNY_WIDGET=true`.
+- Configure `RONNY_REQUIRE_SUBSCRIPTION` (default `true`) and set a long, random `RONNY_SUBSCRIBER_SECRET`. Members enter this code in the widget to unlock full responses; everyone else gets friendly canned replies pointing to your content funnel.
+- The widget fetches CSRF tokens, rate limits user input, and sets an `HttpOnly` cookie when a valid member code is provided. The backend sanitizes messages and enforces strict payload limits before hitting Anthropic.
+- All Anthropic requests still require `ANTHROPIC_API_KEY` (and optionally `ANTHROPIC_MODEL`). Without those env vars the API short-circuits.
+- You can still access the `/ronny` page for internal testing; it uses the same secure endpoint and respects the subscription cookie.
+
+## 🔐 Authentication (Clerk)
+
+- The entire app now runs inside `ClerkProvider`, and middleware enforces Clerk auth + the sitewide security headers on every route (including API routes).
+- Required env vars: `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY`, `CLERK_SECRET_KEY`, and optionally override `CLERK_SIGN_IN_URL` / `CLERK_SIGN_UP_URL` for custom routes.
+- The header automatically shows a Sign In button for signed-out users and a `UserButton` for signed-in users. You can extend this to gate pages or set cookies (e.g., grant Ronny full access automatically for paying members) using Clerk’s server helpers.
 
 ## 🔧 Environment Variables
 
@@ -96,6 +110,17 @@ NEXT_PUBLIC_PLAUSIBLE_DOMAIN=workfreework.com
 
 # Optional: ConvertKit
 NEXT_PUBLIC_CONVERTKIT_FORM_ID=your_form_id
+
+# Stripe (Builder & Operator tiers)
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_xxx
+STRIPE_SECRET_KEY=sk_test_xxx
+STRIPE_PRICE_ID_BUILDER=price_xxx
+STRIPE_PRICE_ID_OPERATOR=price_xxx
+STRIPE_WEBHOOK_SECRET=whsec_xxx
+
+# Accelerator tiers currently email-to-book
+# STRIPE_PRICE_ID_ACCELERATOR_COHORT=
+# STRIPE_PRICE_ID_ACCELERATOR_DFY=
 ```
 
 ## 📊 Analytics Setup
@@ -213,4 +238,3 @@ Contact: hello@workfreework.com
 ---
 
 **Built by Thinkazoo** | Automation for humans, not the other way around.
-
