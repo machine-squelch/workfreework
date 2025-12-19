@@ -41,11 +41,7 @@ export default function EssaysList({ essays }: EssaysListProps) {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`btn-glass ${
-                  isActive
-                    ? 'bg-white/20 border-white/40'
-                    : ''
-                }`}
+                className={`btn-glass ${isActive ? 'btn-glass--active' : ''}`}
               >
                 {filter}
               </button>
