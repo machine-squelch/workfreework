@@ -103,7 +103,7 @@ export default function PressPage() {
               <p className="text-gray-600 mb-3">
                 High-resolution logo files in various formats.
               </p>
-              <button className="text-black hover:text-black font-semibold">
+              <button className="btn-glass">
                 Download Logo Package →
               </button>
             </div>

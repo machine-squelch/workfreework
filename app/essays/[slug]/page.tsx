@@ -837,13 +837,13 @@ export default async function EssayPage({ params }: { params: Promise<{ slug: st
       <section className="max-w-4xl mx-auto px-4 py-8 border-t border-gray-300">
         <p className="text-center text-gray-600 mb-4">Share this essay</p>
         <div className="flex justify-center space-x-4">
-          <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors">
+          <button className="btn-glass">
             Twitter
           </button>
-          <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors">
+          <button className="btn-glass">
             LinkedIn
           </button>
-          <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors">
+          <button className="btn-glass">
             Copy Link
           </button>
         </div>

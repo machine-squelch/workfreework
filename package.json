@@ -9,26 +9,26 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.7.0",
-    "gsap": "^3.12.5",
-    "isomorphic-dompurify": "^2.31.0",
-    "lru-cache": "^11.2.2",
-    "next": "^14.2.5",
+    "@clerk/nextjs": "^6.36.4",
+    "gsap": "^3.14.2",
+    "isomorphic-dompurify": "^2.34.0",
+    "lru-cache": "^11.2.4",
+    "next": "^16.1.0",
     "next-pwa": "^5.6.0",
     "ogl": "^1.0.11",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "stripe": "^19.1.0",
-    "workbox-webpack-plugin": "^7.1.0",
-    "zod": "^3.23.8"
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "stripe": "^20.1.0",
+    "workbox-webpack-plugin": "^7.4.0",
+    "zod": "^4.2.1"
   },
   "devDependencies": {
-    "@types/node": "^20.14.0",
-    "@types/react": "^18.3.0",
-    "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14",
-    "typescript": "^5.5.0"
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   }
 }
