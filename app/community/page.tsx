@@ -162,7 +162,7 @@ export default function CommunityPage() {
                 <li className="text-gray-400">✗ Community access</li>
                 <li className="text-gray-400">✗ Exclusive resources</li>
               </ul>
-              <button className="w-full bg-gray-200 text-gray-300 px-6 py-3 rounded-md font-semibold">
+              <button className="w-full btn-glass" disabled>
                 Current Tier
               </button>
             </div>

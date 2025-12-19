@@ -41,10 +41,10 @@ export default function EssaysList({ essays }: EssaysListProps) {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`rounded-md px-4 py-2 text-sm font-semibold transition ${
+                className={`btn-glass ${
                   isActive
-                    ? 'bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.7)]'
-                    : 'bg-gray-900 text-gray-300 hover:bg-gray-700 hover:text-white'
+                    ? 'bg-white/20 border-white/40'
+                    : ''
                 }`}
               >
                 {filter}
