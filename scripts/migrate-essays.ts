@@ -34,7 +34,8 @@ async function migrateEssays() {
     console.error('  1. MongoDB is running and accessible')
     console.error('  2. Environment variables are properly configured')
     console.error('  3. Payload CMS configuration is valid')
-    throw new Error('Payload client initialization failed. Cannot proceed with migration.')
+    const errorMessage = error instanceof Error ? error.message : String(error)
+    throw new Error(`Payload client initialization failed: ${errorMessage}`)
   }
   
   // First, create a default author if needed
