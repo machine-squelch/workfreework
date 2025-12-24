@@ -102,15 +102,16 @@ export async function POST(request: NextRequest) {
       ratingCount: 0,
     }
 
-    // In production, this would save to a database
-    // For now, we just return the created resource
-    toolkitResources.push(newResource)
+    // NOTE: This is a temporary, non-persistent implementation.
+    // In production, this should save to a durable data store (e.g. database)
+    // instead of mutating an in-memory array, which is not shared across
+    // serverless instances and will be lost on restart.
 
     return NextResponse.json(
       {
         success: true,
         data: newResource,
-        message: 'Resource created successfully',
+        message: 'Resource created successfully (not persisted in this demo)',
       },
       { status: 201 }
     )
