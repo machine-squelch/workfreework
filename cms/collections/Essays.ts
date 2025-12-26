@@ -138,7 +138,7 @@ export const Essays: CollectionConfig = {
         // Trigger revalidation webhook
         if (operation === 'update' || operation === 'create') {
           try {
-            await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/revalidate`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/revalidate`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -149,9 +149,39 @@ export const Essays: CollectionConfig = {
                 slug: doc.slug,
               }),
             })
+            
+            if (!response.ok) {
+              const errorData = await response.json().catch(() => ({}))
+              console.error('Revalidation failed:', response.status, response.statusText, errorData)
+            }
           } catch (error) {
             console.error('Failed to trigger revalidation:', error)
           }
+        }
+      },
+    ],
+    afterDelete: [
+      async ({ doc, req }) => {
+        // Trigger revalidation webhook on delete to remove stale content
+        try {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/revalidate`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${process.env.REVALIDATION_SECRET}`,
+            },
+            body: JSON.stringify({
+              collection: 'essays',
+              slug: doc?.slug,
+            }),
+          })
+          
+          if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}))
+            console.error('Revalidation on delete failed:', response.status, response.statusText, errorData)
+          }
+        } catch (error) {
+          console.error('Failed to trigger revalidation on delete:', error)
         }
       },
     ],

@@ -46,7 +46,7 @@ export const PlaybookSections: CollectionConfig = {
       async ({ operation }) => {
         if (operation === 'update' || operation === 'create') {
           try {
-            await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/revalidate`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/revalidate`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -54,9 +54,35 @@ export const PlaybookSections: CollectionConfig = {
               },
               body: JSON.stringify({ collection: 'playbook-sections' }),
             })
+            
+            if (!response.ok) {
+              const errorData = await response.json().catch(() => ({}))
+              console.error('Revalidation failed:', response.status, response.statusText, errorData)
+            }
           } catch (error) {
             console.error('Failed to trigger revalidation:', error)
           }
+        }
+      },
+    ],
+    afterDelete: [
+      async () => {
+        try {
+          const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/revalidate`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${process.env.REVALIDATION_SECRET}`,
+            },
+            body: JSON.stringify({ collection: 'playbook-sections' }),
+          })
+          
+          if (!response.ok) {
+            const errorData = await response.json().catch(() => ({}))
+            console.error('Revalidation on delete failed:', response.status, response.statusText, errorData)
+          }
+        } catch (error) {
+          console.error('Failed to trigger revalidation on delete:', error)
         }
       },
     ],
