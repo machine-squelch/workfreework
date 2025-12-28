@@ -2,21 +2,21 @@ import EmailCapture from './EmailCapture'
 import Link from 'next/link'
 import Image from 'next/image'
 import LetterGlitch from './LetterGlitch'
-import Galaxy from './Galaxy';
+import MagnetLines from './MagnetLines';
 
 export default function Hero() {
   return (
     <section className="relative min-h-[72vh] overflow-hidden bg-black py-10 md:py-12">
-      <div className="absolute inset-0">
-        <Galaxy 
-          mouseRepulsion={true}
-          mouseInteraction={true}
-          density={1.5} /* Retain original density for a denser, brighter feel */
-          glowIntensity={0.8} /* Further increased glow intensity for brighter neon */
-          saturation={1.0} /* Max saturation for vibrant neon colors */
-          hueShift={220} /* Adjusted hue shift to favor blues and white */
-          twinkleIntensity={0.6} /* Keep increased twinkle for dynamic stars */
-          rotationSpeed={0.1} /* Retain original rotation speed */
+      <div className="absolute inset-0 flex items-center justify-center">
+        <MagnetLines 
+          rows={12}
+          columns={12}
+          containerSize="100vmin"
+          lineColor="#3b82f6"
+          lineWidth="2px"
+          lineHeight="8vmin"
+          baseAngle={-10}
+          chrome={false}
         />
         <div className="absolute inset-0" style={{ zIndex: -30 }}>
           <LetterGlitch glitchSpeed={60} centerVignette outerVignette smooth />
