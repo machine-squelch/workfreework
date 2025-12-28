@@ -26,6 +26,7 @@ export default function CommunityPage() {
         <div 
           className="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-20"
           style={{ backgroundImage: 'url(/skull-back.png)' }}
+          aria-hidden="true"
         />
         <div className="relative max-w-4xl mx-auto text-center text-white">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
