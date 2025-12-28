@@ -32,7 +32,8 @@
     "zod": "^3.23.8",
     "tailwindcss": "^3.4.14",
     "@clerk/nextjs": "^5.7.5",
-    "stripe": "^19.3.1"
+    "stripe": "^19.3.1",
+    "@ducanh2912/next-pwa": "^10.2.9"
   }
 }
 ```
@@ -46,7 +47,9 @@
 - ✅ **Zod 3.23.8**: Type-safe validation, industry standard
 - ✅ **Tailwind CSS 3.4.14**: Latest stable with all features
 - ✅ **Clerk 5.7.5**: Enterprise-grade auth, fully compatible
+- ✅ **@ducanh2912/next-pwa 10.2.9**: Modern, actively maintained PWA support
 - ✅ **No npm vulnerabilities**: Clean security audit
+- ✅ **No deprecated dependencies**: Zero warnings on install
 
 **Real-World Usage:**
 - ✅ Deployed on Vercel with optimal performance
