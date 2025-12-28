@@ -53,7 +53,7 @@
       "enabled": false,
       "provider": "anthropic",
       "apiKey": "env:ANTHROPIC_API_KEY",
-      "model": "claude-3-haiku-20240307",
+      "model": "claude-3-5-sonnet-20241022",
       "persona": "You are a helpful assistant."
     },
     "video": {

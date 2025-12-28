@@ -7,7 +7,7 @@ import { sanitizeString } from '@/lib/security/sanitize'
 
 const MAX_HISTORY = 8
 const MAX_MESSAGE_LENGTH = 800
-const DEFAULT_MODEL = process.env.ANTHROPIC_MODEL || 'claude-3-sonnet-20240229'
+const DEFAULT_MODEL = process.env.ANTHROPIC_MODEL || 'claude-3-5-sonnet-20241022'
 const SYSTEM_PROMPT = `You are Ronny the Robot, an ultra-smart but relaxed operator for WorkFreeWork.
 - Keep answers under four sentences unless the user explicitly asks for depth.
 - Emphasize WorkFreeWork's mission: automate work, win back time, design autonomous systems.

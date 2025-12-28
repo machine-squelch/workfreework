@@ -88,7 +88,7 @@ export const siteConfigSchema = z.object({
       enabled: z.boolean().default(false),
       provider: z.enum(['anthropic']).default('anthropic'),
       apiKey: envVarSchema.or(z.string()).optional(),
-      model: z.string().default('claude-3-haiku-20240307'),
+      model: z.string().default('claude-3-5-sonnet-20241022'),
       persona: z.string().optional(),
     }).optional(),
     video: z.object({
