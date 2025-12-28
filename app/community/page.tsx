@@ -21,8 +21,13 @@ export default function CommunityPage() {
   return (
     <div className="bg-gray-800 min-h-screen">
       {/* Hero */}
-      <section className="py-20 px-4 bg-gradient-to-b from-black to-wfw-gray">
-        <div className="max-w-4xl mx-auto text-center text-white">
+      <section className="relative py-20 px-4 bg-gradient-to-b from-black to-wfw-gray overflow-hidden">
+        {/* Semi-transparent skull background */}
+        <div 
+          className="absolute inset-0 bg-center bg-no-repeat bg-cover opacity-20"
+          style={{ backgroundImage: 'url(/skull-back.png)' }}
+        />
+        <div className="relative max-w-4xl mx-auto text-center text-white">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             The WorkFree Collective
           </h1>
