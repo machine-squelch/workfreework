@@ -44,3 +44,6 @@ next-env.d.ts
 
 # Service worker cache
 /.next/cache
+
+# PWA fallback files (auto-generated)
+/public/fallback-*.js
