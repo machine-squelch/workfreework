@@ -1,7 +1,5 @@
 'use client';
 
-import Navigation from '@/components/shared/Navigation';
-import Footer from '@/components/shared/Footer';
 import { motion } from 'framer-motion';
 import { Shield, Check, FileText, AlertTriangle } from 'lucide-react';
 
@@ -12,7 +10,7 @@ import { Shield, Check, FileText, AlertTriangle } from 'lucide-react';
 export default function InsiderVaultTermsPage() {
   return (
     <div className="min-h-screen bg-background text-text-primary">
-      <Navigation />
+      {/* Header is already rendered in layout.tsx */}
 
       <main>
         {/* Hero Section */}
@@ -414,7 +412,7 @@ export default function InsiderVaultTermsPage() {
         </section>
       </main>
 
-      <Footer />
+      {/* Footer is already rendered in layout.tsx */}
     </div>
   );
 }

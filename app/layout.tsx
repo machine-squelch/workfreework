@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
-import { Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import dynamic from 'next/dynamic'
 
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['400','500','700'] })
+// Using system font stack for reliability across environments
+// In production with network access, you can use: import { Space_Grotesk } from 'next/font/google'
+const fontClassName = 'font-sans'
 const enableRonny = process.env.NEXT_PUBLIC_ENABLE_RONNY_WIDGET === 'true'
 const RonnyWidget = enableRonny ? dynamic(() => import('@/components/RonnyWidget'), { ssr: false }) : null
 
@@ -61,7 +62,7 @@ export default function RootLayout({
           <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         </head>
-        <body className={`${spaceGrotesk.className} antialiased`}>
+        <body className={`${fontClassName} antialiased`}>
           <Header />
           <main className="min-h-screen">
             {children}

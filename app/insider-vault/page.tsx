@@ -1,7 +1,5 @@
 'use client';
 
-import Navigation from '@/components/shared/Navigation';
-import Footer from '@/components/shared/Footer';
 import { motion } from 'framer-motion';
 import {
   Sparkles,
@@ -40,7 +38,7 @@ export default function InsiderVaultPage() {
 
   return (
     <div className="min-h-screen bg-background text-text-primary">
-      <Navigation />
+      {/* Header is already rendered in layout.tsx, so we don't need it here */}
 
       {/* HERO SECTION */}
       <section className="relative overflow-hidden py-24 bg-gradient-to-br from-background via-background-secondary to-background">
@@ -685,7 +683,7 @@ export default function InsiderVaultPage() {
         </div>
       </section>
 
-      <Footer />
+      {/* Footer is already rendered in layout.tsx, so we don't need it here */}
     </div>
   );
 }
