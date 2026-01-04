@@ -81,23 +81,33 @@ export default function SubscriptionPlans({ plans, className = '' }: Subscriptio
               </ul>
               <div className="space-y-3">
                 {(plan.actions || []).map((action, index) => {
-                  const ActionComponent = action.href ? Link : 'button'
-                  const actionProps = action.href
-                    ? { href: action.href }
-                    : { type: 'button', disabled: action.disabled }
+                  const buttonClass = `inline-flex w-full items-center justify-center rounded-2xl px-4 py-3 text-center text-sm font-semibold tracking-wide transition ${
+                    action.disabled
+                      ? 'cursor-not-allowed bg-gray-700 text-gray-400'
+                      : 'bg-white text-black hover:bg-gray-200'
+                  }`
+
+                  if (action.href) {
+                    return (
+                      <Link
+                        key={`${plan.id}-action-${index}`}
+                        href={action.href}
+                        className={buttonClass}
+                      >
+                        {action.label}
+                      </Link>
+                    )
+                  }
 
                   return (
-                    <ActionComponent
+                    <button
                       key={`${plan.id}-action-${index}`}
-                      {...actionProps}
-                      className={`inline-flex w-full items-center justify-center rounded-2xl px-4 py-3 text-center text-sm font-semibold tracking-wide transition ${
-                        action.disabled
-                          ? 'cursor-not-allowed bg-gray-700 text-gray-400'
-                          : 'bg-white text-black hover:bg-gray-200'
-                      }`}
+                      type="button"
+                      disabled={action.disabled}
+                      className={buttonClass}
                     >
                       {action.label}
-                    </ActionComponent>
+                    </button>
                   )
                 })}
               </div>

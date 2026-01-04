@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { EmailCapture } from '@/components/EmailCapture'
+import EmailCapture from '@/components/EmailCapture'
 import { notFound } from 'next/navigation'
 
 // Sample essays data - replace with CMS or markdown files in production
