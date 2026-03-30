@@ -1,8 +1,24 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import { useState, useEffect } from 'react'
+import dynamic from 'next/dynamic'
+
+const hasClerk = Boolean(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY)
+
+// Dynamically import Clerk components only when Clerk is configured
+const ClerkSignIn = hasClerk
+  ? dynamic(() => import('@clerk/nextjs').then(m => ({ default: m.SignInButton })), { ssr: false })
+  : null
+const ClerkSignedIn = hasClerk
+  ? dynamic(() => import('@clerk/nextjs').then(m => ({ default: m.SignedIn })), { ssr: false })
+  : null
+const ClerkSignedOut = hasClerk
+  ? dynamic(() => import('@clerk/nextjs').then(m => ({ default: m.SignedOut })), { ssr: false })
+  : null
+const ClerkUserButton = hasClerk
+  ? dynamic(() => import('@clerk/nextjs').then(m => ({ default: m.UserButton })), { ssr: false })
+  : null
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -44,18 +60,20 @@ export default function Header() {
             >
               Get Playbook
             </Link>
-            <div className="flex items-center space-x-3">
-              <SignedOut>
-                <SignInButton mode="modal">
-                  <button className="px-4 py-2 rounded-full border border-white/30 text-sm hover:bg-white/10 transition-colors">
-                    Sign In
-                  </button>
-                </SignInButton>
-              </SignedOut>
-              <SignedIn>
-                <UserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: 'w-9 h-9' } }} />
-              </SignedIn>
-            </div>
+            {hasClerk && ClerkSignedOut && ClerkSignIn && ClerkSignedIn && ClerkUserButton && (
+              <div className="flex items-center space-x-3">
+                <ClerkSignedOut>
+                  <ClerkSignIn mode="modal">
+                    <button className="px-4 py-2 rounded-full border border-white/30 text-sm hover:bg-white/10 transition-colors">
+                      Sign In
+                    </button>
+                  </ClerkSignIn>
+                </ClerkSignedOut>
+                <ClerkSignedIn>
+                  <ClerkUserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: 'w-9 h-9' } }} />
+                </ClerkSignedIn>
+              </div>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -101,18 +119,20 @@ export default function Header() {
             >
               Get Playbook
             </Link>
-            <div className="flex items-center justify-between gap-3 pt-4">
-              <SignedOut>
-                <SignInButton mode="modal">
-                  <button className="flex-1 px-4 py-2 rounded-full border border-white/30 text-sm text-white">
-                    Sign In
-                  </button>
-                </SignInButton>
-              </SignedOut>
-              <SignedIn>
-                <UserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: 'w-8 h-8' } }} />
-              </SignedIn>
-            </div>
+            {hasClerk && ClerkSignedOut && ClerkSignIn && ClerkSignedIn && ClerkUserButton && (
+              <div className="flex items-center justify-between gap-3 pt-4">
+                <ClerkSignedOut>
+                  <ClerkSignIn mode="modal">
+                    <button className="flex-1 px-4 py-2 rounded-full border border-white/30 text-sm text-white">
+                      Sign In
+                    </button>
+                  </ClerkSignIn>
+                </ClerkSignedOut>
+                <ClerkSignedIn>
+                  <ClerkUserButton afterSignOutUrl="/" appearance={{ elements: { userButtonAvatarBox: 'w-8 h-8' } }} />
+                </ClerkSignedIn>
+              </div>
+            )}
           </div>
         )}
       </nav>

@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user has admin role
-    const isAdmin = sessionClaims?.metadata?.role === 'admin'
+    const isAdmin = (sessionClaims?.metadata as { role?: string })?.role === 'admin'
     if (!isAdmin) {
       return NextResponse.json(
         {
@@ -157,7 +157,7 @@ export async function PUT(request: NextRequest) {
       )
     }
 
-    const isAdmin = sessionClaims?.metadata?.role === 'admin'
+    const isAdmin = (sessionClaims?.metadata as { role?: string })?.role === 'admin'
     if (!isAdmin) {
       return NextResponse.json(
         {
@@ -241,7 +241,7 @@ export async function DELETE(request: NextRequest) {
       )
     }
 
-    const isAdmin = sessionClaims?.metadata?.role === 'admin'
+    const isAdmin = (sessionClaims?.metadata as { role?: string })?.role === 'admin'
     if (!isAdmin) {
       return NextResponse.json(
         {

@@ -11,7 +11,7 @@ if (!stripeSecret) {
 }
 
 const stripe = stripeSecret
-  ? new Stripe(stripeSecret, { apiVersion: '2023-10-16' })
+  ? new Stripe(stripeSecret, { apiVersion: '2025-09-30.clover' })
   : null
 
 function resolveTierFromSession(session: Stripe.Checkout.Session) {
@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
         if (tier) {
           await revokeTierAccess({
             tier,
-            email: subscription.customer_email || subscription.metadata?.email,
+            email: (subscription as any).customer_email || subscription.metadata?.email,
             customerId: typeof subscription.customer === 'string' ? subscription.customer : null,
             subscriptionId: subscription.id,
           })
@@ -75,14 +75,14 @@ export async function POST(req: NextRequest) {
       }
       case 'invoice.payment_failed': {
         const invoice = event.data.object as Stripe.Invoice
-        const priceId = invoice.lines.data[0]?.price?.id
+        const priceId = (invoice.lines.data[0] as any)?.price?.id
         const tier = tierFromPrice(priceId || undefined)
         if (tier) {
           await handlePaymentFailure({
             tier,
             email: invoice.customer_email,
             customerId: typeof invoice.customer === 'string' ? invoice.customer : null,
-            subscriptionId: typeof invoice.subscription === 'string' ? invoice.subscription : null,
+            subscriptionId: typeof (invoice as any).subscription === 'string' ? (invoice as any).subscription : null,
             invoiceId: invoice.id,
           })
         }

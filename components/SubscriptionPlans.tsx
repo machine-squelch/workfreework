@@ -81,23 +81,28 @@ export default function SubscriptionPlans({ plans, className = '' }: Subscriptio
               </ul>
               <div className="space-y-3">
                 {(plan.actions || []).map((action, index) => {
-                  const ActionComponent = action.href ? Link : 'button'
-                  const actionProps = action.href
-                    ? { href: action.href }
-                    : { type: 'button', disabled: action.disabled }
-
-                  return (
-                    <ActionComponent
+                  const cls = `inline-flex w-full items-center justify-center rounded-2xl px-4 py-3 text-center text-sm font-semibold tracking-wide transition ${
+                    action.disabled
+                      ? 'cursor-not-allowed bg-gray-700 text-gray-400'
+                      : 'bg-white text-black hover:bg-gray-200'
+                  }`
+                  return action.href ? (
+                    <Link
                       key={`${plan.id}-action-${index}`}
-                      {...actionProps}
-                      className={`inline-flex w-full items-center justify-center rounded-2xl px-4 py-3 text-center text-sm font-semibold tracking-wide transition ${
-                        action.disabled
-                          ? 'cursor-not-allowed bg-gray-700 text-gray-400'
-                          : 'bg-white text-black hover:bg-gray-200'
-                      }`}
+                      href={action.href}
+                      className={cls}
                     >
                       {action.label}
-                    </ActionComponent>
+                    </Link>
+                  ) : (
+                    <button
+                      key={`${plan.id}-action-${index}`}
+                      type="button"
+                      disabled={action.disabled}
+                      className={cls}
+                    >
+                      {action.label}
+                    </button>
                   )
                 })}
               </div>

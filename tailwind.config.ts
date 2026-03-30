@@ -16,7 +16,7 @@ const config: Config = {
         'wfw-gray-dark': '#4B5563',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', 'system-ui', 'sans-serif'],
+        sans: ['Space Grotesk', 'system-ui', 'sans-serif'],
       },
     },
   },
