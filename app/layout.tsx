@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import SkipToContent from '@/components/SkipToContent'
 import dynamic from 'next/dynamic'
 
 const enableRonny = process.env.NEXT_PUBLIC_ENABLE_RONNY_WIDGET === 'true'
@@ -52,6 +53,7 @@ export default function RootLayout({
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="format-detection" content="telephone=no" />
+        <meta name="theme-color" content="#000000" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -59,10 +61,14 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="canonical" href="https://workfreework.com" />
+        {/* Plausible Analytics - Privacy-first analytics */}
+        <script defer data-domain="workfreework.com" src="https://plausible.io/js/script.js"></script>
       </head>
       <body className="font-sans antialiased">
+        <SkipToContent />
         <Header />
-        <main className="min-h-screen">
+        <main id="main-content" className="min-h-screen">
           {children}
         </main>
         <Footer />

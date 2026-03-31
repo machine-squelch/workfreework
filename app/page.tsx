@@ -4,10 +4,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 import SubscriptionPlans from '@/components/SubscriptionPlans'
 import { homepagePlans } from '@/lib/plans'
+import { OrganizationSchema, WebsiteSchema, SoftwareApplicationSchema } from '@/components/StructuredData'
+import { SocialProof } from '@/components/SocialProof'
 
 export default function Home() {
   return (
     <>
+      {/* Structured Data for SEO and AI Optimization */}
+      <OrganizationSchema />
+      <WebsiteSchema />
+      <SoftwareApplicationSchema />
       {/* Hero Section */}
       <Hero />
 
@@ -295,6 +301,9 @@ export default function Home() {
           />
         </div>
       </section>
+
+      {/* Social Proof Section */}
+      <SocialProof />
 
           {/* The Closer */}
           <section className="py-20 px-4 bg-gray-800 text-gray-200 border-t-4 border-gray-600 border-b-4 border-gray-600">
