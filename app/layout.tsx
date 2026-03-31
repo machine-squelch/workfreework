@@ -2,10 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import dynamic from 'next/dynamic'
-
-const enableRonny = process.env.NEXT_PUBLIC_ENABLE_RONNY_WIDGET === 'true'
-const RonnyWidget = enableRonny ? dynamic(() => import('@/components/RonnyWidget'), { ssr: false }) : null
+import RonnyWidgetWrapper from '@/components/RonnyWidgetWrapper'
 
 export const metadata: Metadata = {
   title: 'WorkFreeWork - Design Your Life When AI Eats Your Task List',
@@ -66,7 +63,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        {enableRonny && RonnyWidget ? <RonnyWidget /> : null}
+        <RonnyWidgetWrapper />
       </body>
     </html>
   )

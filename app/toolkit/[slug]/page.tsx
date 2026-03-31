@@ -7,9 +7,9 @@ import DownloadButton from '@/components/toolkit/DownloadButton'
 import RelatedResources from '@/components/toolkit/RelatedResources'
 
 interface ToolkitResourcePageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateStaticParams() {
@@ -20,7 +20,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ToolkitResourcePageProps): Promise<Metadata> {
-  const resource = getResourceBySlug(params.slug)
+  const { slug } = await params
+  const resource = getResourceBySlug(slug)
 
   if (!resource) {
     return {
@@ -55,8 +56,9 @@ export async function generateMetadata({ params }: ToolkitResourcePageProps): Pr
   }
 }
 
-export default function ToolkitResourcePage({ params }: ToolkitResourcePageProps) {
-  const resource = getResourceBySlug(params.slug)
+export default async function ToolkitResourcePage({ params }: ToolkitResourcePageProps) {
+  const { slug } = await params
+  const resource = getResourceBySlug(slug)
 
   if (!resource) {
     notFound()
