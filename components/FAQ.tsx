@@ -3,7 +3,10 @@
  * Optimized for AI search engines and traditional SEO
  */
 
+'use client'
+
 import { FAQSchema } from './StructuredData'
+import { motion } from 'framer-motion'
 
 interface FAQ {
   question: string
@@ -42,17 +45,33 @@ export default function FAQ() {
     <section className="py-20 px-4 bg-gray-900">
       <FAQSchema faqs={faqs} />
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-4 text-white">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-bold text-center mb-4 text-white"
+        >
           Frequently Asked Questions
-        </h2>
-        <p className="text-center text-gray-400 mb-12">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-center text-gray-400 mb-12"
+        >
           Everything you need to know before joining
-        </p>
+        </motion.p>
 
         <div className="space-y-6">
           {faqs.map((faq, index) => (
-            <details
+            <motion.details
               key={index}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
               className="bg-gray-800 p-6 rounded-lg border-2 border-gray-700 hover:border-green-400 transition-all group"
             >
               <summary className="font-semibold text-lg text-white cursor-pointer flex items-center justify-between">
@@ -74,11 +93,17 @@ export default function FAQ() {
               <div className="mt-4 text-gray-300 leading-relaxed">
                 {faq.answer}
               </div>
-            </details>
+            </motion.details>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-12 text-center"
+        >
           <p className="text-gray-400 mb-4">Still have questions?</p>
           <a
             href="/contact"
@@ -86,7 +111,7 @@ export default function FAQ() {
           >
             Contact us →
           </a>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

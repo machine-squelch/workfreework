@@ -8,6 +8,7 @@ import { OrganizationSchema, WebsiteSchema, SoftwareApplicationSchema } from '@/
 import { SocialProof } from '@/components/SocialProof'
 import TimeSavingsCalculator from '@/components/TimeSavingsCalculator'
 import FAQ from '@/components/FAQ'
+import FadeIn from '@/components/ui/FadeIn'
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
 
           {/* The Lie They Sold You */}
           <section className="py-16 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
+            <FadeIn>
             <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">The Lie They Sold You</h2>
           <div className="text-lg md:text-xl space-y-4 text-gray-300 leading-relaxed">
@@ -38,18 +40,22 @@ export default function Home() {
             Read "So… you want to quit capitalism?" →
           </Link>
         </div>
+            </FadeIn>
       </section>
 
           {/* Subscription Cards (Preview on Landing) */}
           <section className="py-20 px-4 bg-gray-900 border-t-4 border-gray-700 border-b-4 border-gray-700">
+            <FadeIn>
             <div className="max-w-6xl mx-auto">
               <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-white">Membership Options</h2>
               <SubscriptionPlans plans={homepagePlans} />
             </div>
+            </FadeIn>
           </section>
 
           {/* How We Save / Make You Money */}
           <section className="py-20 px-4 bg-gray-800 border-t-4 border-gray-600 border-b-4 border-gray-600">
+            <FadeIn>
             <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 neon-text">
             How We Save / Make You Money
@@ -114,8 +120,7 @@ export default function Home() {
           <div className="text-center mt-12">
                 <Link
                   href="/pricing"
-                  className="inline-block"
-                  data-btn="glass"
+                  className="inline-block btn-glass"
                 >
                   Enter the OS →
                 </Link>
@@ -126,10 +131,12 @@ export default function Home() {
             <TimeSavingsCalculator />
           </div>
         </div>
+            </FadeIn>
       </section>
 
           {/* Off-Grid AI Autonomy Teaser */}
           <section className="py-20 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
+            <FadeIn>
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Own Your AI Workforce</h2>
               <div className="text-lg md:text-xl space-y-4 text-gray-300 leading-relaxed">
@@ -144,10 +151,12 @@ export default function Home() {
                 Enter the OS →
               </Link>
             </div>
+            </FadeIn>
           </section>
 
           {/* What You'll Find Here */}
           <section className="py-20 px-4 bg-gray-900 border-t-4 border-gray-700 border-b-4 border-gray-700">
+            <FadeIn>
             <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 neon-text">
             What You'll Find Here
@@ -219,10 +228,12 @@ export default function Home() {
                 </div>
           </div>
         </div>
+            </FadeIn>
       </section>
 
           {/* Featured Essays */}
           <section className="py-20 px-4 border-t-4 border-gray-800 border-b-4 border-gray-800">
+            <FadeIn>
             <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
             Featured Essays
@@ -278,10 +289,12 @@ export default function Home() {
             </Link>
           </div>
         </div>
+            </FadeIn>
       </section>
 
           {/* The Proof */}
           <section className="relative py-20 px-4 bg-black border-t-4 border-gray-800 border-b-4 border-gray-800 overflow-hidden">
+            <FadeIn>
             <div className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">The Proof</h2>
           <p className="text-xl text-gray-300 mb-4">
@@ -307,6 +320,7 @@ export default function Home() {
             className="max-w-xl mx-auto"
           />
         </div>
+            </FadeIn>
       </section>
 
       {/* Social Proof Section */}
@@ -314,6 +328,7 @@ export default function Home() {
 
           {/* The Closer */}
           <section className="py-20 px-4 bg-gray-800 text-gray-200 border-t-4 border-gray-600 border-b-4 border-gray-600">
+            <FadeIn>
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">The Closer</h2>
               <div className="space-y-6 text-lg text-gray-300 leading-relaxed mb-12">
@@ -339,15 +354,17 @@ export default function Home() {
               
               <Link
                 href="/pricing"
-                className="inline-flex items-center text-lg"
+                className="inline-flex items-center text-lg btn-glass"
               >
                 Join the WorkFree Movement
               </Link>
             </div>
+            </FadeIn>
           </section>
 
           {/* Operator Membership CTA */}
           <section className="py-20 px-4 bg-black text-gray-200 border-t-4 border-white border-b-4 border-white fluoro-edge fluoro-edge--pulse">
+            <FadeIn>
             <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Operator Membership
@@ -377,13 +394,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link
               href="/pricing"
-              className="text-lg"
+              className="text-lg btn-glass"
             >
               View All Membership Tiers
             </Link>
             <Link
               href="/api/checkout?tier=operator"
-              className="text-lg inline-block"
+              className="text-lg inline-block btn-glass"
             >
               Claim your build slot. Autonomy starts now. →
             </Link>
@@ -393,6 +410,7 @@ export default function Home() {
             Or continue with the free newsletter below ↓
           </p>
         </div>
+            </FadeIn>
       </section>
 
       {/* FAQ Section */}
@@ -400,6 +418,7 @@ export default function Home() {
 
           {/* Newsletter Signup */}
           <section className="py-20 px-4 bg-gray-900 border-t-4 border-gray-700 border-b-4 border-gray-700">
+            <FadeIn>
             <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
             "One Email a Week That Makes You Question Employment."
@@ -420,6 +439,7 @@ export default function Home() {
             100% free. No credit card required.
           </p>
         </div>
+            </FadeIn>
       </section>
     </>
   )

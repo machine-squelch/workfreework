@@ -138,7 +138,7 @@ export default function PlaybookPage() {
             <div className="text-center">
               <div className="text-4xl mb-4">⚡</div>
               <h3 className="font-bold text-xl mb-2 text-white neon-text">Actionable</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-400">
                 No theory. Every step includes templates, tools, and real examples.
               </p>
             </div>
@@ -146,7 +146,7 @@ export default function PlaybookPage() {
             <div className="text-center">
               <div className="text-4xl mb-4">🎯</div>
               <h3 className="font-bold text-xl mb-2 text-white neon-text">Tested</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-400">
                 Used by knowledge workers, freelancers, and side-hustlers to reclaim 10-20 hours/week.
               </p>
             </div>
@@ -154,7 +154,7 @@ export default function PlaybookPage() {
             <div className="text-center">
               <div className="text-4xl mb-4">🆓</div>
               <h3 className="font-bold text-xl mb-2 text-white neon-text">Free</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-400">
                 Seriously. No upsells, no paywalls. This is the full playbook.
               </p>
             </div>

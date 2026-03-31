@@ -55,22 +55,22 @@ export default function PressPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-lg mb-2 text-black">Founded</h3>
+              <h3 className="font-semibold text-lg mb-2 text-white">Founded</h3>
               <p className="text-gray-300">2025</p>
             </div>
             
             <div>
-              <h3 className="font-semibold text-lg mb-2 text-black">Creator</h3>
+              <h3 className="font-semibold text-lg mb-2 text-white">Creator</h3>
               <p className="text-gray-300">Thinkazoo</p>
             </div>
             
             <div>
-              <h3 className="font-semibold text-lg mb-2 text-black">Location</h3>
+              <h3 className="font-semibold text-lg mb-2 text-white">Location</h3>
               <p className="text-gray-300">Remote / Digital-First</p>
             </div>
             
             <div>
-              <h3 className="font-semibold text-lg mb-2 text-black">Website</h3>
+              <h3 className="font-semibold text-lg mb-2 text-white">Website</h3>
               <p className="text-gray-300">workfreework.com</p>
             </div>
           </div>
@@ -100,12 +100,12 @@ export default function PressPage() {
           <div className="space-y-4">
             <div className="border-2 border-gray-200 p-6 rounded-lg">
               <h3 className="font-semibold text-lg mb-2">Logo</h3>
-              <p className="text-gray-600 mb-3">
+              <p className="text-gray-400 mb-3">
                 High-resolution logo files in various formats.
               </p>
-              <button className="text-black hover:text-black font-semibold">
+              <a href="mailto:press@workfreework.com?subject=Logo%20Package%20Request" className="text-white hover:text-gray-300 font-semibold">
                 Download Logo Package →
-              </button>
+              </a>
             </div>
             
             <div className="border-2 border-gray-200 p-6 rounded-lg">
@@ -114,29 +114,29 @@ export default function PressPage() {
                 <div>
                   <div className="w-20 h-20 bg-black rounded mb-2"></div>
                   <p className="text-sm font-mono">#A6FF00</p>
-                  <p className="text-xs text-gray-600">Toxic Green</p>
+                  <p className="text-xs text-gray-400">Toxic Green</p>
                 </div>
                 <div>
                   <div className="w-20 h-20 bg-wfw-gray-dark rounded mb-2"></div>
                   <p className="text-sm font-mono">#FF3B3F</p>
-                  <p className="text-xs text-gray-600">Accent Red</p>
+                  <p className="text-xs text-gray-400">Accent Red</p>
                 </div>
                 <div>
                   <div className="w-20 h-20 bg-gray-800 rounded mb-2 border border-gray-300"></div>
                   <p className="text-sm font-mono">#F5F5F0</p>
-                  <p className="text-xs text-gray-600">Bone Gray</p>
+                  <p className="text-xs text-gray-400">Bone Gray</p>
                 </div>
                 <div>
                   <div className="w-20 h-20 bg-black rounded mb-2"></div>
                   <p className="text-sm font-mono">#000000</p>
-                  <p className="text-xs text-gray-600">Black</p>
+                  <p className="text-xs text-gray-400">Black</p>
                 </div>
               </div>
             </div>
             
             <div className="border-2 border-gray-200 p-6 rounded-lg">
               <h3 className="font-semibold text-lg mb-2">Typography</h3>
-              <p className="text-gray-600">
+              <p className="text-gray-400">
                 Primary Font: <strong>Space Grotesk</strong>
               </p>
             </div>
@@ -149,18 +149,18 @@ export default function PressPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
-              <p className="text-4xl font-bold text-black mb-2">1,000+</p>
-              <p className="text-gray-600">Newsletter Subscribers</p>
+              <p className="text-4xl font-bold text-green-400 mb-2">1,000+</p>
+              <p className="text-gray-400">Newsletter Subscribers</p>
             </div>
             
             <div className="text-center">
-              <p className="text-4xl font-bold text-black mb-2">50+</p>
-              <p className="text-gray-600">Published Essays</p>
+              <p className="text-4xl font-bold text-green-400 mb-2">50+</p>
+              <p className="text-gray-400">Published Essays</p>
             </div>
             
             <div className="text-center">
-              <p className="text-4xl font-bold text-black mb-2">20+</p>
-              <p className="text-gray-600">Free Tools & Templates</p>
+              <p className="text-4xl font-bold text-green-400 mb-2">20+</p>
+              <p className="text-gray-400">Free Tools & Templates</p>
             </div>
           </div>
         </section>
@@ -194,7 +194,7 @@ export default function PressPage() {
           <div className="space-y-3">
             <p>
               <strong>Email:</strong>{' '}
-              <a href="mailto:press@workfreework.com" className="text-black hover:underline">
+              <a href="mailto:press@workfreework.com" className="text-white hover:underline">
                 press@workfreework.com
               </a>
             </p>
@@ -204,7 +204,7 @@ export default function PressPage() {
             <p className="text-gray-400 mt-6">
               For general inquiries, partnerships, or speaking opportunities, 
               please use{' '}
-              <a href="mailto:hello@workfreework.com" className="text-black hover:underline">
+              <a href="mailto:hello@workfreework.com" className="text-white hover:underline">
                 hello@workfreework.com
               </a>
             </p>

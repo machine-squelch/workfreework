@@ -78,9 +78,9 @@ const MagnetLines: React.FC<MagnetLinesProps> = ({
 
     const chromeStyle: CSSProperties = chrome
       ? {
-          background: `linear-gradient(135deg, #ffffff 0%, #dfe4e8 15%, #9aa4ad 35%, #cfd5da 55%, #7f8b96 75%, #e9eef2 92%, #ffffff 100%)`,
+          background: `linear-gradient(135deg, #ffffff 0%, #e8edf2 10%, #a8b4c0 25%, #d4dbe2 40%, #8a98a6 55%, #c8d0d8 70%, #6e7f8e 82%, #e0e6ec 92%, #ffffff 100%)`,
           boxShadow:
-            '0 0 8px rgba(255,255,255,0.35), 0 0 16px rgba(255,255,255,0.25), inset 0 0 2px rgba(255,255,255,0.6)'
+            '0 0 6px rgba(255,255,255,0.5), 0 0 14px rgba(200,220,240,0.35), inset 0 0 3px rgba(255,255,255,0.7)'
         }
       : { backgroundColor: lineColor }
 

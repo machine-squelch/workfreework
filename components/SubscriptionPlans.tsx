@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import { PlanDefinition } from '@/types/plans'
+import { motion } from 'framer-motion'
 
 const ledPositions = [
   { style: { top: '-0.6rem', left: '15%' } },
@@ -45,10 +48,14 @@ type SubscriptionPlansProps = {
 export default function SubscriptionPlans({ plans, className = '' }: SubscriptionPlansProps) {
   return (
     <div className={`grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4 ${className}`}>
-      {plans.map((plan) => {
+      {plans.map((plan, index) => {
         return (
-          <div
+          <motion.div
             key={plan.id}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
             className={`relative rounded-3xl border-2 border-white/80 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-800 p-8 text-white shadow-[0_0_35px_rgba(255,255,255,0.5)] transition-transform duration-300 hover:-translate-y-2 ${
               plan.highlight ? 'scale-105 shadow-[0_0_55px_rgba(255,255,255,0.8)]' : ''
             }`}
@@ -110,7 +117,7 @@ export default function SubscriptionPlans({ plans, className = '' }: Subscriptio
                 <p className="mt-3 text-center text-xs text-gray-400">{plan.note}</p>
               )}
             </div>
-          </div>
+          </motion.div>
         )
       })}
     </div>

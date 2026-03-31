@@ -75,7 +75,7 @@ export default function PrivacyPage() {
             </ul>
             <p className="text-gray-300 mt-4">
               To exercise these rights, contact us at{' '}
-              <a href="mailto:privacy@workfreework.com" className="text-black hover:underline">
+              <a href="mailto:privacy@workfreework.com" className="text-white hover:underline">
                 privacy@workfreework.com
               </a>
             </p>
@@ -85,7 +85,7 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-bold mb-4">Contact</h2>
             <p className="text-gray-300">
               Questions about privacy?{' '}
-              <a href="mailto:privacy@workfreework.com" className="text-black hover:underline">
+              <a href="mailto:privacy@workfreework.com" className="text-white hover:underline">
                 privacy@workfreework.com
               </a>
             </p>

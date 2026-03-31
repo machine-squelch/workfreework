@@ -343,12 +343,13 @@ export default function InsiderVaultPage() {
                 ))}
               </ul>
 
-              <button
-                className="w-full py-4 bg-surface-secondary hover:bg-accent-cyan/20 border border-accent-cyan text-accent-cyan font-semibold rounded-lg transition-all duration-200"
+              <a
+                href="/api/checkout?tier=playbook"
+                className="w-full py-4 bg-surface-secondary hover:bg-accent-cyan/20 border border-accent-cyan text-accent-cyan font-semibold rounded-lg transition-all duration-200 block text-center"
                 aria-label="Get Playbook for $97"
               >
                 Get Playbook - $97
-              </button>
+              </a>
               <p className="text-xs text-text-muted text-center mt-3">
                 30-day money-back guarantee
               </p>
@@ -404,12 +405,13 @@ export default function InsiderVaultPage() {
                 ))}
               </ul>
 
-              <button
-                className="w-full py-4 bg-gradient-to-r from-accent-cyan to-accent-gold hover:from-accent-gold hover:to-accent-cyan text-background font-bold rounded-lg transition-all duration-300 shadow-lg"
+              <a
+                href="/api/checkout?tier=provault"
+                className="w-full py-4 bg-gradient-to-r from-accent-cyan to-accent-gold hover:from-accent-gold hover:to-accent-cyan text-background font-bold rounded-lg transition-all duration-300 shadow-lg block text-center"
                 aria-label="Get Pro Vault for $297"
               >
                 Get Pro Vault - $297
-              </button>
+              </a>
               <p className="text-xs text-text-muted text-center mt-3">
                 30-day money-back guarantee
               </p>
@@ -459,12 +461,13 @@ export default function InsiderVaultPage() {
                 ))}
               </ul>
 
-              <button
-                className="w-full py-4 bg-surface-secondary hover:bg-accent-gold/20 border border-accent-gold text-accent-gold font-semibold rounded-lg transition-all duration-200"
+              <a
+                href="/api/checkout?tier=insider"
+                className="w-full py-4 bg-surface-secondary hover:bg-accent-gold/20 border border-accent-gold text-accent-gold font-semibold rounded-lg transition-all duration-200 block text-center"
                 aria-label="Get Insider Circle for $997"
               >
                 Get Insider Circle - $997
-              </button>
+              </a>
               <p className="text-xs text-text-muted text-center mt-3">
                 30-day money-back guarantee
               </p>

@@ -1,8 +1,11 @@
+'use client'
+
 import EmailCapture from './EmailCapture'
 import Link from 'next/link'
 import Image from 'next/image'
 import LetterGlitch from './LetterGlitch'
-import MagnetLines from './MagnetLines';
+import MagnetLines from './MagnetLines'
+import { motion } from 'framer-motion'
 
 export default function Hero() {
   return (
@@ -12,11 +15,11 @@ export default function Hero() {
           rows={12}
           columns={12}
           containerSize="100vmin"
-          lineColor="#3b82f6"
-          lineWidth="2px"
-          lineHeight="8vmin"
+          lineColor="#c0c8d0"
+          lineWidth="0.6vmin"
+          lineHeight="3.5vmin"
           baseAngle={-10}
-          chrome={false}
+          chrome={true}
         />
         <div className="absolute inset-0" style={{ zIndex: -30 }}>
           <LetterGlitch glitchSpeed={60} centerVignette outerVignette smooth />
@@ -43,7 +46,12 @@ export default function Hero() {
       <div className="relative z-10 h-full grid place-items-center px-4">
         <div className="max-w-4xl w-full mx-auto text-center flex flex-col items-center gap-16 md:gap-20">
           
-          <div className="relative flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="relative flex justify-center"
+          >
             <div className="p-3 md:p-4 rounded-3xl border-4 border-white glass-card no-shine fluoro-edge--hotwhite neon-backglow--white">
               <Image 
                 src="/wfw-logo.png" 
@@ -54,31 +62,61 @@ export default function Hero() {
                 className="max-w-full h-auto"
               />
             </div>
-          </div>
+          </motion.div>
           
-          <div className="relative">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
+            className="relative"
+          >
             <div className="absolute inset-0 -mx-6 -my-4 rounded-3xl">
               <div className="glass-card no-shine w-full h-full rounded-3xl border-4 border-white fluoro-edge--hotwhite neon-backglow--white"></div>
             </div>
             <div className="relative z-10 py-6 md:py-8">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white neon-text-strong">
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white neon-text-strong"
+              >
                 Work Free. Earn More.
-              </h1>
+              </motion.h1>
               
-              <p className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto font-semibold">
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                className="text-lg md:text-xl lg:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto font-semibold"
+              >
                 Build a company in hours, not fiscal quarters.
-              </p>
+              </motion.p>
               
-              <p className="text-base md:text-lg text-gray-300 mb-4 max-w-2xl mx-auto">
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                className="text-base md:text-lg text-gray-300 mb-4 max-w-2xl mx-auto"
+              >
                 No pitch decks. No gatekeepers. No permission.
-              </p>
+              </motion.p>
 
-              <p className="text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto italic">
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+                className="text-base md:text-lg text-gray-400 mb-8 max-w-2xl mx-auto italic"
+              >
                 Built for creators, founders, solopreneurs, and rebels tired of trading time for money.
-              </p>
+              </motion.p>
 
               {/* Email Capture */}
-              <div className="max-w-xl mx-auto mb-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.0 }}
+                className="max-w-xl mx-auto mb-6"
+              >
                 <EmailCapture 
                   placeholder="Your email"
                   buttonText="Get My 20 Hours Back"
@@ -86,17 +124,23 @@ export default function Hero() {
                 <p className="text-sm text-gray-400 mt-2">
                   Five steps to reclaim 20 hours a week and build real income without clock-punching.
                 </p>
-              </div>
+              </motion.div>
 
               {/* Secondary CTA */}
-              <Link 
-                href="/essays"
-                className="inline-block text-white hover:text-gray-300 font-semibold border-b-2 border-white hover:border-gray-300 transition-all neon-text"
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1.1 }}
               >
-                Start Printing Time →
-              </Link>
+                <Link 
+                  href="/essays"
+                  className="inline-block text-white hover:text-gray-300 font-semibold border-b-2 border-white hover:border-gray-300 transition-all neon-text"
+                >
+                  Start Printing Time →
+                </Link>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

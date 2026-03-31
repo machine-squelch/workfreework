@@ -1,8 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import dynamic from 'next/dynamic'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const hasClerk = Boolean(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY)
 
@@ -93,8 +94,15 @@ export default function Header() {
         </div>
 
         {/* Mobile Navigation */}
+        <AnimatePresence>
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-2">
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="md:hidden py-4 space-y-2 overflow-hidden"
+          >
             <Link href="/about" className="block py-2 text-gray-300 hover:text-white">
               About
             </Link>
@@ -133,8 +141,9 @@ export default function Header() {
                 </ClerkSignedIn>
               </div>
             )}
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
       </nav>
     </header>
   )

@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import EmailCapture from '@/components/EmailCapture'
 import EssaysList, { Essay } from '@/components/EssaysList'
 
@@ -119,7 +120,7 @@ export default function EssaysPage() {
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white neon-text-strong">
             Essays & Dispatches
           </h1>
-          <p className="text-2xl text-gray-700 mb-8">
+          <p className="text-2xl text-gray-300 mb-8">
             Sharp takes on automation, economics, policy, and the future of work.
           </p>
           <p className="text-lg text-gray-400">
@@ -129,11 +130,11 @@ export default function EssaysPage() {
 
         <EssaysList essays={essays} />
 
-        {/* Load More Button */}
+        {/* More Content CTA */}
         <div className="text-center mb-16">
-          <button className="btn-glass btn-glass--neon">
-            Load More Essays
-          </button>
+          <Link href="/newsletter" className="btn-glass btn-glass--neon">
+            Subscribe for New Essays
+          </Link>
         </div>
 
         {/* Newsletter CTA */}

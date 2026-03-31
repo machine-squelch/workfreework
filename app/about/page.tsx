@@ -92,21 +92,21 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold mb-4">Our Approach</h2>
           <div className="space-y-6 text-gray-300">
             <div>
-              <h3 className="font-semibold text-xl text-black mb-2">Practical, Not Theoretical</h3>
+              <h3 className="font-semibold text-xl text-white mb-2">Practical, Not Theoretical</h3>
               <p>
                 We share real tools, tested workflows, and honest case studies. No buzzwords, no "thought leadership."
               </p>
             </div>
             
             <div>
-              <h3 className="font-semibold text-xl text-black mb-2">Critical, Not Cynical</h3>
+              <h3 className="font-semibold text-xl text-white mb-2">Critical, Not Cynical</h3>
               <p>
                 We critique capitalism, productivity culture, and surveillance tech — but we also build alternatives.
               </p>
             </div>
             
             <div>
-              <h3 className="font-semibold text-xl text-black mb-2">Human-Centered</h3>
+              <h3 className="font-semibold text-xl text-white mb-2">Human-Centered</h3>
               <p>
                 Automation should serve people, not shareholders. We advocate for policies like UBI, worker 
                 ownership, and right-to-disconnect laws.
@@ -119,7 +119,7 @@ export default function AboutPage() {
         <section className="bg-black text-white p-8 rounded-lg mb-12 border-4 border-purple-400 neon-border--purple neon-backglow--purple">
           <h2 className="text-3xl font-bold mb-4">Built by Thinkazoo</h2>
           <p className="text-gray-300 text-lg leading-relaxed">
-            WorkFreeWork is created by <strong className="text-black">Thinkazoo</strong>, 
+            WorkFreeWork is created by <strong className="text-white">Thinkazoo</strong>, 
             a builder, writer, and automation enthusiast who believes the best use of technology 
             is giving people their time back. This project combines research, real-world experiments, 
             and a healthy dose of sarcasm about late-stage capitalism.

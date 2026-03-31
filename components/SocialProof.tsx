@@ -3,6 +3,10 @@
  * Displays trust signals and testimonials for credibility
  */
 
+'use client'
+
+import { motion } from 'framer-motion'
+
 interface Testimonial {
   quote: string
   author: string
@@ -37,33 +41,45 @@ export function SocialProof() {
       <div className="max-w-6xl mx-auto">
         {/* Stats Bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-green-400 mb-2">5,000+</div>
-            <div className="text-gray-400">Newsletter Subscribers</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-green-400 mb-2">1,200+</div>
-            <div className="text-gray-400">Active Members</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-green-400 mb-2">$2.5M+</div>
-            <div className="text-gray-400">Revenue Generated</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-green-400 mb-2">15,000+</div>
-            <div className="text-gray-400">Hours Automated</div>
-          </div>
+          {[
+            { value: "5,000+", label: "Newsletter Subscribers" },
+            { value: "1,200+", label: "Active Members" },
+            { value: "$2.5M+", label: "Revenue Generated" },
+            { value: "15,000+", label: "Hours Automated" },
+          ].map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="text-center"
+            >
+              <div className="text-4xl font-bold text-green-400 mb-2">{stat.value}</div>
+              <div className="text-gray-400">{stat.label}</div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Testimonials */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-center mb-12 text-white">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl font-bold text-center mb-12 text-white"
+          >
             What Members Are Saying
-          </h2>
+          </motion.h2>
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: index * 0.12 }}
                 className="bg-gray-800 p-6 rounded-lg border-2 border-gray-700 neon-border neon-backglow--white"
               >
                 <div className="mb-4">
@@ -81,13 +97,19 @@ export function SocialProof() {
                     </div>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* Trust Badges */}
-        <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-center"
+        >
           <div className="inline-flex flex-wrap justify-center items-center gap-6 text-gray-400 text-sm">
             <div className="flex items-center gap-2">
               <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,7 +136,7 @@ export function SocialProof() {
               <span>Lifetime Updates</span>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
