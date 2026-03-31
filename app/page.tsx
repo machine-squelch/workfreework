@@ -4,10 +4,18 @@ import Link from 'next/link'
 import Image from 'next/image'
 import SubscriptionPlans from '@/components/SubscriptionPlans'
 import { homepagePlans } from '@/lib/plans'
+import { OrganizationSchema, WebsiteSchema, SoftwareApplicationSchema } from '@/components/StructuredData'
+import { SocialProof } from '@/components/SocialProof'
+import TimeSavingsCalculator from '@/components/TimeSavingsCalculator'
+import FAQ from '@/components/FAQ'
 
 export default function Home() {
   return (
     <>
+      {/* Structured Data for SEO and AI Optimization */}
+      <OrganizationSchema />
+      <WebsiteSchema />
+      <SoftwareApplicationSchema />
       {/* Hero Section */}
       <Hero />
 
@@ -104,7 +112,7 @@ export default function Home() {
                 </div>
           </div>
           <div className="text-center mt-12">
-                <Link 
+                <Link
                   href="/pricing"
                   className="inline-block"
                   data-btn="glass"
@@ -112,6 +120,11 @@ export default function Home() {
                   Enter the OS →
                 </Link>
               </div>
+
+          {/* Interactive Calculator */}
+          <div className="mt-16">
+            <TimeSavingsCalculator />
+          </div>
         </div>
       </section>
 
@@ -296,6 +309,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Social Proof Section */}
+      <SocialProof />
+
           {/* The Closer */}
           <section className="py-20 px-4 bg-gray-800 text-gray-200 border-t-4 border-gray-600 border-b-4 border-gray-600">
             <div className="max-w-4xl mx-auto text-center">
@@ -378,6 +394,9 @@ export default function Home() {
           </p>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ />
 
           {/* Newsletter Signup */}
           <section className="py-20 px-4 bg-gray-900 border-t-4 border-gray-700 border-b-4 border-gray-700">
