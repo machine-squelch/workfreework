@@ -6,6 +6,71 @@
 - Git repository (GitHub, GitLab, or Bitbucket)
 - Domain name (optional but recommended)
 
+
+## Option 0: Deploy to GitHub Pages (Static Site — workfreework.com)
+
+This repository is configured for automatic static deployment to GitHub Pages via GitHub Actions. Every push to `main` triggers a build and deployment.
+
+### Step 1: Enable GitHub Pages
+
+1. Go to the repository **Settings** → **Pages**
+2. Under **Source**, select **GitHub Actions**
+3. Save
+
+### Step 2: Configure Secrets (Optional)
+
+In **Settings → Secrets and variables → Actions**, add these secrets if needed:
+
+| Secret | Description |
+|--------|-------------|
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk auth key (for Sign In/Sign Up) |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe public key (for checkout) |
+
+And these repository variables:
+
+| Variable | Description |
+|----------|-------------|
+| `NEXT_PUBLIC_ENABLE_RONNY_WIDGET` | Set to `true` to enable Ronny AI widget |
+
+### Step 3: Configure DNS for workfreework.com
+
+At your domain registrar, configure these DNS records:
+
+```
+A     @     185.199.108.153
+A     @     185.199.109.153
+A     @     185.199.110.153
+A     @     185.199.111.153
+CNAME www   machine-squelch.github.io.
+```
+
+### Step 4: Set Custom Domain in GitHub Pages
+
+1. Go to **Settings → Pages**
+2. Under **Custom domain**, enter `workfreework.com`
+3. Enable **Enforce HTTPS**
+
+> **Note:** The `public/CNAME` file is already configured with `workfreework.com`. GitHub Pages uses this file to configure the custom domain automatically on each deployment.
+
+### What Works on GitHub Pages
+
+✅ All static pages (home, essays, tools, pricing, etc.)  
+✅ Space Grotesk font (loaded from Google Fonts CDN)  
+✅ Dynamic essays and toolkit pages (pre-rendered)  
+✅ PWA manifest  
+✅ Sitemap and robots.txt  
+
+### What Requires a Server (Not Available on GitHub Pages)
+
+⚠️ Stripe checkout (requires server-side Stripe API)  
+⚠️ Email subscription API (requires server)  
+⚠️ Ronny AI widget (requires Anthropic API access)  
+⚠️ Clerk authentication (requires server-side runtime)  
+
+For full functionality, deploy to **Vercel** (see Option 1 below) and point your domain there instead.
+
+---
+
 ## Option 1: Deploy to Vercel (Recommended)
 
 Vercel is built by the creators of Next.js and offers the best Next.js deployment experience.
