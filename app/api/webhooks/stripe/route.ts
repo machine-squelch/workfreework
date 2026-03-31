@@ -3,6 +3,17 @@ import Stripe from 'stripe'
 import { tierFromPrice, tierLabel } from '@/lib/stripe/tier'
 import { grantTierAccess, handlePaymentFailure, revokeTierAccess } from '@/lib/memberships/onboarding'
 
+// Stripe type extensions for backward compatibility with older API field names
+interface StripeSubscriptionWithEmail extends Stripe.Subscription {
+  customer_email?: string | null
+}
+interface StripeInvoiceLineItemWithPrice extends Stripe.InvoiceLineItem {
+  price?: { id: string } | null
+}
+interface StripeInvoiceWithSubscription extends Stripe.Invoice {
+  subscription?: string | Stripe.Subscription | null
+}
+
 const stripeSecret = process.env.STRIPE_SECRET_KEY
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
 
@@ -11,7 +22,7 @@ if (!stripeSecret) {
 }
 
 const stripe = stripeSecret
-  ? new Stripe(stripeSecret, { apiVersion: '2023-10-16' })
+  ? new Stripe(stripeSecret, { apiVersion: '2025-09-30.clover' })
   : null
 
 function resolveTierFromSession(session: Stripe.Checkout.Session) {
@@ -66,7 +77,7 @@ export async function POST(req: NextRequest) {
         if (tier) {
           await revokeTierAccess({
             tier,
-            email: subscription.customer_email || subscription.metadata?.email,
+            email: (subscription as StripeSubscriptionWithEmail).customer_email || subscription.metadata?.email,
             customerId: typeof subscription.customer === 'string' ? subscription.customer : null,
             subscriptionId: subscription.id,
           })
@@ -75,14 +86,14 @@ export async function POST(req: NextRequest) {
       }
       case 'invoice.payment_failed': {
         const invoice = event.data.object as Stripe.Invoice
-        const priceId = invoice.lines.data[0]?.price?.id
+        const priceId = (invoice.lines.data[0] as StripeInvoiceLineItemWithPrice)?.price?.id
         const tier = tierFromPrice(priceId || undefined)
         if (tier) {
           await handlePaymentFailure({
             tier,
             email: invoice.customer_email,
             customerId: typeof invoice.customer === 'string' ? invoice.customer : null,
-            subscriptionId: typeof invoice.subscription === 'string' ? invoice.subscription : null,
+            subscriptionId: typeof (invoice as StripeInvoiceWithSubscription).subscription === 'string' ? (invoice as StripeInvoiceWithSubscription).subscription as string : null,
             invoiceId: invoice.id,
           })
         }

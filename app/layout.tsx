@@ -1,12 +1,9 @@
 import type { Metadata } from 'next'
-import { ClerkProvider } from '@clerk/nextjs'
-import { Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import dynamic from 'next/dynamic'
 
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], weight: ['400','500','700'] })
 const enableRonny = process.env.NEXT_PUBLIC_ENABLE_RONNY_WIDGET === 'true'
 const RonnyWidget = enableRonny ? dynamic(() => import('@/components/RonnyWidget'), { ssr: false }) : null
 
@@ -48,28 +45,29 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <head>
-          <meta name="copyright" content="© 2025-2026 Thinkazoo LLC. All rights reserved." />
-          <meta name="author" content="Thinkazoo" />
-          <meta name="robots" content="index, follow" />
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="format-detection" content="telephone=no" />
-          <link rel="icon" href="/favicon.ico" sizes="any" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        </head>
-        <body className={`${spaceGrotesk.className} antialiased`}>
-          <Header />
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
-          {enableRonny && RonnyWidget ? <RonnyWidget /> : null}
-        </body>
-      </html>
-    </ClerkProvider>
+    <html lang="en">
+      <head>
+        <meta name="copyright" content="© 2025-2026 Thinkazoo LLC. All rights reserved." />
+        <meta name="author" content="Thinkazoo" />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="format-detection" content="telephone=no" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      </head>
+      <body className="font-sans antialiased">
+        <Header />
+        <main className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
+        {enableRonny && RonnyWidget ? <RonnyWidget /> : null}
+      </body>
+    </html>
   )
 }

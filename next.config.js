@@ -1,73 +1,11 @@
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  register: true,
-  skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development',
-  buildExcludes: [/middleware-manifest\.json$/],
-  publicExcludes: ['!robots.txt', '!sitemap.xml'],
-  runtimeCaching: [
-    {
-      urlPattern: /^https?.*/,
-      handler: 'NetworkFirst',
-      options: {
-        cacheName: 'offlineCache',
-        expiration: {
-          maxEntries: 200,
-        },
-      },
-    },
-  ],
-  // Suppress service worker errors in development
-  fallbacks: {
-    document: '/offline',
-  },
-});
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
 }
 
-// Security headers
-const securityHeaders = [
-  {
-    key: 'Content-Security-Policy',
-    value: `
-      default-src 'self';
-      script-src 'self' 'unsafe-eval' 'unsafe-inline' *.vercel-scripts.com;
-      style-src 'self' 'unsafe-inline' fonts.googleapis.com;
-      img-src 'self' data: blob: https:;
-      font-src 'self' fonts.gstatic.com;
-      connect-src 'self' *.formspree.io *.stripe.com;
-      frame-src 'self' *.stripe.com;
-    `.replace(/\s{2,}/g, ' ').trim()
-  },
-  {
-    key: 'X-DNS-Prefetch-Control',
-    value: 'on'
-  },
-  {
-    key: 'Strict-Transport-Security',
-    value: 'max-age=63072000; includeSubDomains; preload'
-  },
-  {
-    key: 'Referrer-Policy',
-    value: 'origin-when-cross-origin'
-  },
-  {
-    key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=()'
-  }
-]
-
-module.exports = withPWA({
-  ...nextConfig,
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: securityHeaders,
-      },
-    ]
-  },
-})
+module.exports = nextConfig

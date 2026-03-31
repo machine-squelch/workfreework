@@ -93,7 +93,7 @@ export default function ToolkitGallery({ initialResources }: ToolkitGalleryProps
     setSelectedDifficulty([])
   }, [])
 
-  const hasActiveFilters = searchQuery || selectedCategories.length > 0 || selectedDifficulty.length > 0
+  const hasActiveFilters = Boolean(searchQuery) || selectedCategories.length > 0 || selectedDifficulty.length > 0
 
   return (
     <div className="space-y-8">
