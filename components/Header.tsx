@@ -45,11 +45,14 @@ export default function Header() {
             <Link href="/tools" className="text-gray-300 hover:text-white transition-colors">
               Tools
             </Link>
-            <Link href="/newsletter" className="text-gray-300 hover:text-white transition-colors">
-              Newsletter
+            <Link href="/playbook" className="text-gray-300 hover:text-white transition-colors">
+              Playbook
             </Link>
             <Link href="/community" className="text-gray-300 hover:text-white transition-colors">
               Community
+            </Link>
+            <Link href="/newsletter" className="text-gray-300 hover:text-white transition-colors">
+              Newsletter
             </Link>
             <Link href="/pricing" className="text-gray-300 hover:text-white transition-colors">
               Pricing
@@ -104,11 +107,14 @@ export default function Header() {
             <Link href="/tools" className="block py-2 text-gray-300 hover:text-white">
               Tools
             </Link>
-            <Link href="/newsletter" className="block py-2 text-gray-300 hover:text-white">
-              Newsletter
+            <Link href="/playbook" className="block py-2 text-gray-300 hover:text-white">
+              Playbook
             </Link>
             <Link href="/community" className="block py-2 text-gray-300 hover:text-white">
               Community
+            </Link>
+            <Link href="/newsletter" className="block py-2 text-gray-300 hover:text-white">
+              Newsletter
             </Link>
             <Link href="/pricing" className="block py-2 text-gray-300 hover:text-white">
               Pricing

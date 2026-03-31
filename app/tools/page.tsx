@@ -34,19 +34,19 @@ export default function ToolsPage() {
         {/* Categories */}
         <div className="mb-12">
           <div className="flex flex-wrap gap-3">
-            <button className="px-4 py-2 bg-black text-black rounded-md font-semibold">
+            <button className="btn-glass">
               All Tools
             </button>
-            <button className="px-4 py-2 bg-gray-900 text-gray-300 rounded-md hover:bg-gray-100">
+            <button className="btn-glass">
               AI & Automation
             </button>
-            <button className="px-4 py-2 bg-gray-900 text-gray-300 rounded-md hover:bg-gray-100">
+            <button className="btn-glass">
               Productivity
             </button>
-            <button className="px-4 py-2 bg-gray-900 text-gray-300 rounded-md hover:bg-gray-100">
+            <button className="btn-glass">
               Income & Monetization
             </button>
-            <button className="px-4 py-2 bg-gray-900 text-gray-300 rounded-md hover:bg-gray-100">
+            <button className="btn-glass">
               Templates
             </button>
           </div>
@@ -207,7 +207,7 @@ export default function ToolsPage() {
               <p className="text-gray-400 mb-4">
                 Track where your time goes and identify automation opportunities.
               </p>
-              <button className="text-black hover:text-black font-semibold">
+              <button className="btn-glass">
                 Download →
               </button>
             </div>
@@ -217,7 +217,7 @@ export default function ToolsPage() {
               <p className="text-gray-400 mb-4">
                 50+ tested prompts for email, content, code, and customer service.
               </p>
-              <button className="text-black hover:text-black font-semibold">
+              <button className="btn-glass">
                 Download →
               </button>
             </div>
@@ -227,7 +227,7 @@ export default function ToolsPage() {
               <p className="text-gray-400 mb-4">
                 Plan your alternative income streams and track progress toward work freedom.
               </p>
-              <button className="text-black hover:text-black font-semibold">
+              <button className="btn-glass">
                 Download →
               </button>
             </div>
@@ -237,7 +237,7 @@ export default function ToolsPage() {
               <p className="text-gray-400 mb-4">
                 Flowchart to help you decide which tasks to automate and which tools to use.
               </p>
-              <button className="text-black hover:text-black font-semibold">
+              <button className="btn-glass">
                 Download →
               </button>
             </div>
